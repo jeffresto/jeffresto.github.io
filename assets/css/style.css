@@ -10,44 +10,48 @@ img{max-width:100%;height:auto;border-radius:10px}
 a:hover{text-decoration:underline}
 
 
-/* ─── WARM MODERN THEME ─────────────────────────────── */
+/* ─── TERRACOTTA + SLATE THEME ─────────────────────────────── */
 body {
-  background-color: #fdf6ec;  /* soft sand */
-  color: #2b2b2b;
+  background-color: #faf6f2;  /* soft warm white with clay tint */
+  color: #1f2937;             /* slate text */
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 
 a {
-  color: #e67e22;  /* warm orange accent */
+  color: #b45309;             /* burnt orange accent */
   text-decoration: none;
 }
 a:hover {
-  color: #ca6f1e;
+  color: #92400e;
   text-decoration: underline;
 }
 
+/* ─── HEADER / FOOTER ───────────────────────────────────────── */
 header, footer {
-  background-color: #fff8f0;
-  border-bottom: 1px solid #e5ded6;
-  border-top: 1px solid #e5ded6;
+  background-color: #e7d3c0;  /* warm terracotta strip */
+  border-bottom: 1px solid #d6bfa9;
+  border-top: 1px solid #d6bfa9;
   padding: 18px 22px;
 }
 
 nav a {
-  color: #e67e22;
+  color: #7c2d12;             /* deep rust link color */
   margin: 0 10px;
+  font-weight: 500;
 }
 nav a:hover {
-  color: #ca6f1e;
+  color: #9a3412;
 }
 
+/* ─── MAIN CONTENT ─────────────────────────────────────────── */
 main {
   max-width: 980px;
   margin: 0 auto;
   padding: 28px 22px;
 }
 
+/* ─── PROJECT CARDS ────────────────────────────────────────── */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -56,10 +60,10 @@ main {
 }
 
 .card {
-  background-color: #ffffff;
+  background-color: #ffffff;  /* clean contrast panel */
   padding: 16px;
   border-radius: 12px;
-  border: 1px solid #e5ded6;
+  border: 1px solid #e5e7eb;
   box-shadow: 0 2px 8px rgba(0,0,0,.05);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -69,18 +73,26 @@ main {
   box-shadow: 0 4px 14px rgba(0,0,0,.08);
 }
 
+.card a {
+  color: #b45309;
+}
+.card a:hover {
+  color: #92400e;
+}
+
+/* ─── FOOTER ───────────────────────────────────────────────── */
 footer {
   text-align: center;
   margin-top: 40px;
   padding: 20px;
-  color: #5a5a5a;
+  color: #4b5563;
 }
 
-
-/* ─── RESPONSIVE TWEAKS ───────────────────────────────────────── */
+/* ─── RESPONSIVE TWEAKS ───────────────────────────────────── */
 @media (max-width: 640px) {
   main { padding: 20px 16px; }
 }
+
 
 /* Resume viewer: scale image to fit viewport height, no page scroll needed */
 .resume-viewer {
