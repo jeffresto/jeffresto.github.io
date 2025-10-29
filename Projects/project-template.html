@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>XSS & Web App Hardening Lab — Jeffrey Resto</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<header>
+  <h1><a href="/">Jeffrey Resto</a></h1>
+  <nav>
+    <a href="/projects/">Projects</a>
+    <a href="/resume/Jeffrey_Resto_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+  </nav>
+</header>
+<main>
+  <article>
+    <h2>XSS & Web App Hardening Lab</h2>
+    <p><strong>Problem:</strong> Demo app reflected user input without encoding, enabling XSS.</p>
+    <p><strong>Environment:</strong> OWASP Juice Shop (v14), Burp Suite CE, OWASP ZAP, Chrome.</p>
+    <h3>Approach</h3>
+    <ol>
+      <li>Mapped attack surface; identified sinks via Burp.</li>
+      <li>Verified payloads (<code>&lt;script&gt;alert(1)&lt;/script&gt;</code>, DOM-based probes).</li>
+      <li>Mitigations: output encoding, input validation, CSP (<code>script-src 'self' 'nonce-123'</code>).</li>
+    </ol>
+    <h3>Evidence</h3>
+    <ul>
+      <li>Before/after screenshots (PII redacted).</li>
+      <li>Blocked payload classes; CSP violation reports.</li>
+    </ul>
+    <h3>Impact</h3>
+    <p>Neutralized reflected & DOM XSS classes; added defense-in-depth with CSP and encoding.</p>
+    <p><a href="https://github.com/jeffresto/your-repo" target="_blank" rel="noopener">Code/notes</a></p>
+  </article>
+</main>
+<footer><small>© <span id="y"></span> Jeffrey Resto</small></footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
