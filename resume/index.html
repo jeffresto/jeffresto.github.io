@@ -10,16 +10,31 @@
   <header><h1><a href="/">Jeffrey Resto</a></h1></header>
 <main>
   <h2>Resume</h2>
-  <p>You can view my full resume directly below or <a href="/resume/Jeffrey_Resto_Resume.pdf" download>download a copy</a>.</p>
 
-  <div style="border:1px solid #ccc; border-radius:8px; overflow:hidden; margin-top:1em;">
-    <iframe
-      src="/resume/Jeffrey_Resto_Resume.pdf"
-      width="100%"
-      height="800px"
-      style="border:none;">
-    </iframe>
-  </div>
+  <!-- Native inline PDF -->
+  <object
+    data="/resume/Jeffrey_Resto_Resume.pdf"
+    type="application/pdf"
+    width="100%"
+    height="900"
+    style="border:1px solid #ddd;border-radius:10px;overflow:hidden;display:block;"
+  >
+    <!-- Fallback content if the browser can't render inline PDFs -->
+    <p>
+      Your browser can’t display PDFs inline. You can
+      <a href="/resume/Jeffrey_Resto_Resume.pdf" download>download the resume</a>
+      instead.
+    </p>
+  </object>
+
+  <p style="margin-top:12px">
+    <a
+      href="/resume/Jeffrey_Resto_Resume.pdf"
+      download
+      class="btn"
+      style="display:inline-block;padding:10px 16px;border:1px solid #ccc;border-radius:8px;text-decoration:none"
+    >Download PDF</a>
+  </p>
 </main>
 </body>
 </html>
