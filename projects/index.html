@@ -1,2 +1,43 @@
 <!doctype html>
-<html><body><h1>Projects</h1><p>List of all projects will go here.</p></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Projects — Jeffrey Resto</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<header>
+  <h1><a href="/">Jeffrey Resto</a></h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/projects/">Projects</a>
+    <a href="/resume/">Resume</a>
+    <a href="mailto:restojeffrey@gmail.com">Contact</a>
+    <a href="https://github.com/jeffresto" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Projects</h2>
+  <p>Here are some of my cybersecurity labs and projects.</p>
+
+  <div class="cards">
+    <article class="card">
+      <h3><a href="/projects/project-template.html">Web App XSS Hardening</a></h3>
+      <p>Identified and mitigated reflected XSS vulnerabilities using Burp Suite, OWASP ZAP, and CSP headers.</p>
+    </article>
+
+    <article class="card">
+      <h3><a href="#">Network Enumeration Lab</a></h3>
+      <p>Scanned and mapped Windows/Linux environments to identify open ports, services, and misconfigurations.</p>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <small>© <span id="y"></span> Jeffrey Resto</small>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
