@@ -8,7 +8,37 @@ main{max-width:980px;margin:0 auto;padding:28px 22px}
 footer{border-top:1px solid #eee;padding:18px 22px;text-align:center;margin-top:40px}
 img{max-width:100%;height:auto;border-radius:10px}
 a:hover{text-decoration:underline}
-body { background-color: #1f2937; color: #f9fafb; }
+
+
+
+
+
+
+
+
+
+body {
+  background-color: #0a192f;  /* pick your favorite option */
+  color: #e6f1ff;             /* text color */
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+a {
+  color: #64ffda;             /* accent link color */
+}
+
+header, footer {
+  background-color: rgba(255,255,255,0.05);
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+h2 {
+  border-bottom: 2px solid #64ffda;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
 
 /* Resume viewer: scale image to fit viewport height, no page scroll needed */
 .resume-viewer {
