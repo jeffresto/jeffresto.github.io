@@ -7,34 +7,36 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-  <header><h1><a href="/">Jeffrey Resto</a></h1></header>
+<header>
+  <h1><a href="/">Jeffrey Resto</a></h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/projects/">Projects</a>
+    <a href="/resume/">Resume</a>
+    <a href="mailto:restojeffrey@gmail.com">Contact</a>
+    <a href="https://github.com/jeffresto" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
 <main>
   <h2>Resume</h2>
 
-  <!-- Native inline PDF -->
-  <object
-    data="/resume/Jeffrey_Resto_Resume.pdf"
-    type="application/pdf"
-    width="100%"
-    height="900"
-    style="border:1px solid #ddd;border-radius:10px;overflow:hidden;display:block;"
-  >
-    <!-- Fallback content if the browser can't render inline PDFs -->
-    <p>
-      Your browser can’t display PDFs inline. You can
-      <a href="/resume/Jeffrey_Resto_Resume.pdf" download>download the resume</a>
-      instead.
-    </p>
-  </object>
+  <!-- Viewport-fitted image (no scrolling needed) -->
+  <div class="resume-viewer">
+    <picture>
+      <source srcset="/assets/img/resume/resume.webp" type="image/webp">
+      <img src="/assets/img/resume/resume.png" alt="Resume for Jeffrey Resto">
+    </picture>
+  </div>
 
-  <p style="margin-top:12px">
-    <a
-      href="/resume/Jeffrey_Resto_Resume.pdf"
-      download
-      class="btn"
-      style="display:inline-block;padding:10px 16px;border:1px solid #ccc;border-radius:8px;text-decoration:none"
-    >Download PDF</a>
+  <p class="resume-actions">
+    <a href="/resume/Jeffrey_Resto_Resume.pdf" download>Download PDF</a>
   </p>
 </main>
+
+<footer>
+  <small>© <span id="y"></span> Jeffrey Resto</small>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
