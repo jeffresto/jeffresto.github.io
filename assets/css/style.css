@@ -8,6 +8,57 @@ main{max-width:980px;margin:0 auto;padding:28px 22px}
 footer{border-top:1px solid #eee;padding:18px 22px;text-align:center;margin-top:40px}
 img{max-width:100%;height:auto;border-radius:10px}
 a:hover{text-decoration:underline}
+/* Resume viewer: scale image to fit viewport height, no page scroll needed */
+.resume-viewer {
+  /* Reserve space for header/footer; tweak 160px if your header is taller */
+  height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  background: #fafafa;
+  overflow: hidden; /* prevents page scrolling */
+}
+
+/* Ensure the image fits entirely inside the box */
+.resume-viewer img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 2px 16px rgba(0,0,0,.05);
+}
+
+/* Two-page layout: vertically center both pages and scale together */
+.resume-viewer.multi {
+  flex-direction: column;
+  gap: 12px;
+}
+.resume-viewer.multi figure {
+  margin: 0;
+}
+
+/* Action row under the viewer */
+.resume-actions {
+  text-align: center;
+  margin: 10px 0 0;
+}
+.resume-actions a {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+/* Mobile: allow some scrolling so text stays readable instead of shrinking too small */
 @media (max-width: 640px) {
-  object[type="application/pdf"] { height: 650px; }
+  .resume-viewer {
+    height: auto;         /* let it grow */
+    overflow: visible;    /* allow scroll on small screens */
+  }
 }
