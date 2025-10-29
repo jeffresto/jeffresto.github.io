@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Jeffrey Resto — Cybersecurity Portfolio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Cybersecurity projects, labs, and write-ups.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/favicon.png">
+  <meta property="og:title" content="Jeffrey Resto — Cybersecurity Portfolio">
+  <meta property="og:description" content="Cybersecurity projects, labs, and write-ups.">
+  <meta property="og:type" content="website">
+</head>
+<body>
+<header>
+  <h1>Jeffrey Resto</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/projects/">Projects</a>
+    <a href="/resume/Jeffrey_Resto_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    <a href="mailto:restojeffrey@gmail.com">Contact</a>
+    <a href="https://github.com/jeffresto" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <h2>Cybersecurity Projects & Write-ups</h2>
+    <p>Threat detection · Incident response · AppSec · Network security · Python tooling</p>
+  </section>
+
+  <section aria-labelledby="featured">
+    <h3 id="featured">Featured Projects</h3>
+    <div class="cards">
+      <!-- Duplicate these cards for 2–3 top projects -->
+      <article class="card">
+        <h4><a href="/projects/project-template.html">XSS & Web App Hardening Lab</a></h4>
+        <p>Identified and mitigated reflected XSS in a demo app; added CSP, output encoding, and input validation.</p>
+        <ul class="meta"><li>Stack: Burp Suite, OWASP ZAP, CSP</li><li>Outcome: blocked payload classes; CSP nonce</li></ul>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <small>© <span id="y"></span> Jeffrey Resto · New York, NY</small>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
