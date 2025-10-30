@@ -422,6 +422,44 @@ footer.is-visible {
   cursor: pointer; /* whole card clickable (optional JS below) */
   transition: transform .15s ease, box-shadow .15s ease;
 }
+
+/* ─── LAB CARD BACKGROUNDS ────────────────────────────────────────── */
+.lab-card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #1f2937;
+}
+
+/* Soft overlay so text remains readable */
+.lab-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right,
+              rgba(250,246,242,0.92) 0%,
+              rgba(250,246,242,0.85) 100%);
+  z-index: 0;
+}
+
+.lab-card__body,
+.lab-card__tags,
+.lab-card__title,
+.lab-card__desc,
+.lab-card .btn {
+  position: relative;
+  z-index: 1; /* ensure above overlay */
+}
+
+/* individual backgrounds */
+.bg-tcp         { background-image: url("/assets/img/projects/tcp.png"); }
+.bg-xss         { background-image: url("/assets/img/projects/xss.png"); }
+.bg-arp         { background-image: url("/assets/img/projects/arp.png"); }
+.bg-snort       { background-image: url("/assets/img/projects/snort.png"); }
+.bg-sqlinject   { background-image: url("/assets/img/projects/sqlinjection.png"); }
+
+
 .lab-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0,0,0,.09);
