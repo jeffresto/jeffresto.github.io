@@ -261,6 +261,16 @@
   goTo(0);
 })();
 </script>
+<script>
+  document.querySelectorAll('.lab-card[data-href]').forEach(card => {
+    card.addEventListener('click', (e) => {
+      // ignore clicks on the inner "View Details" link
+      if ((e.target as HTMLElement).closest('a')) return;
+      const url = card.getAttribute('data-href');
+      if (url) window.location.href = url;
+    });
+  });
+</script>
 
 </body>
 </html>
