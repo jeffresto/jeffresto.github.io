@@ -1,3 +1,24 @@
+/* ─── LAYOUT CONTROL FOR STICKY FOOTER ───────────────────────────── */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* The main content area should take up all remaining space */
+main {
+  flex: 1;
+}
+
+/* Footer sits naturally at the bottom now */
+footer {
+  margin-top: auto; /* pushes footer to the bottom */
+}
+
+
 *{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto}
 header{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid #eee}
 nav a{margin:0 10px;text-decoration:none}
