@@ -526,3 +526,10 @@ footer.is-visible {
   font-weight: 600;
 }
 .btn:hover { background:#92400e; border-color:#92400e; }
+
+/* ─── LAB CARD BACKGROUNDS (add me) ───────────────────────────── */
+.bg-tcp       { background-image: url("/assets/img/projects/tcp.png"); }
+.bg-xss       { background-image: url("/assets/img/projects/xss.png"); }
+.bg-arp       { background-image: url("/assets/img/projects/arp.png"); }
+.bg-snort     { background-image: url("/assets/img/projects/snort.png"); }
+.bg-sqlinject { background-image: url("/assets/img/projects/sqlinjection.png"); }
