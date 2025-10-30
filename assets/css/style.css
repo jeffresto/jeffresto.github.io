@@ -352,6 +352,24 @@ footer.is-visible {
   text-align: center;
   padding: 10px 10px 16px;
 }
+
+.carousel__slide {
+  min-width: 80%; /* smaller cards (default) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .carousel__slide { min-width: 50%; } /* show 2 at once on larger screens */
+}
+
+@media (min-width: 1200px) {
+  .carousel__slide { min-width: 33.33%; } /* show 3 at once on desktops */
+}
+
+
 .carousel__slide img {
   display: block;
   width: 100%;
