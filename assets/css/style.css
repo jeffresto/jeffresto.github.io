@@ -9,21 +9,47 @@ footer{border-top:1px solid #eee;padding:18px 22px;text-align:center;margin-top:
 img{max-width:100%;height:auto;border-radius:10px}
 a:hover{text-decoration:underline}
 
-/* ─── BRANDING HEADER ───────────────────────────── */
+/* ─── BRAND LOGO BADGE ───────────────────────────────────────────── */
+.brand {
+  display: flex;
+  align-items: center;
+}
+
 .brand a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
   font-family: "Poppins", "Segoe UI", sans-serif;
   font-weight: 600;
-  letter-spacing: -0.5px;
-  color: #7c2d12; /* deep rust */
-  font-size: 1.6rem;
+  color: #7c2d12;   /* deep rust for text */
+  font-size: 1.4rem;
 }
 
-.brand a span {
-  color: #b45309; /* terracotta accent dot */
+/* Small badge with initials */
+.logo-badge {
+  background-color: #b45309;   /* terracotta accent */
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-right: 10px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.15s ease;
 }
 
-.brand a:hover {
-  text-decoration: none;
+.brand a:hover .logo-badge {
+  transform: scale(1.05);
+  background-color: #92400e;
+}
+
+/* Name text */
+.logo-text {
+  color: #7c2d12;
+}
+
+.brand a:hover .logo-text {
   color: #9a3412;
 }
 
