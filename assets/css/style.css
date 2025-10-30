@@ -253,3 +253,76 @@ footer.is-visible {
     transform: none;
   }
 }
+
+/* ---- Credentials page styles ---- */
+.lead {
+  color: #374151;
+  margin-top: 4px;
+}
+
+.cred-section { margin-top: 24px; }
+
+.cred-card {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 14px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+.cred-card__left { display:flex; align-items:flex-start; justify-content:center; }
+.cred-card__body h4 { margin: 0 0 4px; }
+.muted { color: #6b7280; margin: 0 0 8px; }
+
+.bullets { padding-left: 18px; margin: 0; }
+.bullets li { margin: 4px 0; }
+
+/* Certifications grid */
+.cred-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.cred-mini {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.cred-mini:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 14px rgba(0,0,0,.08);
+}
+.cred-mini h4 { margin: 6px 0 4px; }
+
+/* Badges */
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 600;
+}
+.badge--amber { background:#fef3c7; color:#92400e; border-color:#f59e0b; }
+.badge--slate { background:#e5e7eb; color:#1f2937; border-color:#9ca3af; }
+.badge--green { background:#dcfce7; color:#065f46; border-color:#10b981; }
+
+/* Coursework pills */
+.pill-list {
+  list-style: none; padding: 0; margin: 8px 0 0;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.pill-list li {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 6px 12px;
+  color: #374151;
+}
