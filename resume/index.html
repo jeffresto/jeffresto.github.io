@@ -51,5 +51,30 @@
   const options = { year: 'numeric', month: 'long' };
   document.getElementById('resume-date').textContent = date.toLocaleDateString('en-US', options);
 </script>
+<script>
+  (function () {
+    const footer = document.querySelector('footer');
+    if (!footer) return;
+
+    // If user prefers reduced motion, show immediately
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) { footer.classList.add('is-visible'); return; }
+
+    // Reveal when the footer enters the viewport
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          footer.classList.add('is-visible');
+          io.unobserve(footer);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    io.observe(footer);
+
+    // Fallback: show after 2s in case IO is unsupported
+    setTimeout(() => footer.classList.add('is-visible'), 2000);
+  })();
+</script>
 </body>
 </html>
