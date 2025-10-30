@@ -344,30 +344,24 @@ footer.is-visible {
   will-change: transform;
 }
 
-/* Slides */
+/* Slides — one card per slide, centered */
 .carousel__slide {
   min-width: 100%;
-  margin: 0;
-  position: relative;
-  text-align: center;
-  padding: 10px 10px 16px;
-}
-
-.carousel__slide {
-  min-width: 80%; /* smaller cards (default) */
+  flex: 0 0 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 20px; /* space around the card */
+  margin: 0;
 }
 
-@media (min-width: 768px) {
-  .carousel__slide { min-width: 50%; } /* show 2 at once on larger screens */
+/* Card sizing inside the slide */
+.lab-card {
+  width: 80%;          /* narrower than the carousel container */
+  max-width: 500px;    /* don’t let it stretch too wide on large screens */
+  aspect-ratio: 1 / 1; /* keep it a square */
 }
 
-@media (min-width: 1200px) {
-  .carousel__slide { min-width: 33.33%; } /* show 3 at once on desktops */
-}
 
 
 .carousel__slide img {
