@@ -9,6 +9,24 @@ footer{border-top:1px solid #eee;padding:18px 22px;text-align:center;margin-top:
 img{max-width:100%;height:auto;border-radius:10px}
 a:hover{text-decoration:underline}
 
+/* ─── BRANDING HEADER ───────────────────────────── */
+.brand a {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: #7c2d12; /* deep rust */
+  font-size: 1.6rem;
+}
+
+.brand a span {
+  color: #b45309; /* terracotta accent dot */
+}
+
+.brand a:hover {
+  text-decoration: none;
+  color: #9a3412;
+}
+
 
 /* ─── TERRACOTTA + SLATE THEME ─────────────────────────────── */
 body {
