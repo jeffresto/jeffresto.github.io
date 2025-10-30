@@ -27,7 +27,7 @@ a:hover{text-decoration:underline}
 
 /* Small badge with initials */
 .logo-badge {
-  background-color: #b45309;   /* terracotta accent */
+  background-color: #7c2d12;   /* deeper clay for contrast */
   color: #fff;
   font-weight: 700;
   font-size: 1rem;
@@ -35,14 +35,15 @@ a:hover{text-decoration:underline}
   border-radius: 6px;
   margin-right: 10px;
   letter-spacing: 0.5px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.15s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
 .brand a:hover .logo-badge {
   transform: scale(1.05);
-  background-color: #92400e;
+  background-color: #b45309;  /* warm terracotta on hover */
 }
+
 
 /* Name text */
 .logo-text {
