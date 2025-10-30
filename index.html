@@ -29,6 +29,44 @@
     <a href="mailto:restojeffrey@gmail.com">Contact</a>
   </nav>
 </header>
+<section aria-labelledby="project-gallery">
+  <h2 id="project-gallery">Project Gallery</h2>
+
+  <div class="carousel" aria-roledescription="carousel">
+    <div class="carousel__viewport" aria-live="polite">
+      <!-- SLIDE 1 -->
+      <figure class="carousel__slide" aria-label="1 of 4">
+        <img src="/assets/img/projects/xss-before-after.png" alt="XSS mitigation before/after dashboard" loading="lazy" />
+        <figcaption>XSS Simulation & Hardening (CSP + encoding)</figcaption>
+      </figure>
+
+      <!-- SLIDE 2 -->
+      <figure class="carousel__slide" aria-label="2 of 4">
+        <img src="/assets/img/projects/network-enum.png" alt="Network enumeration map with services and hosts" loading="lazy" />
+        <figcaption>Network Enumeration & Vulnerability Scan</figcaption>
+      </figure>
+
+      <!-- SLIDE 3 -->
+      <figure class="carousel__slide" aria-label="3 of 4">
+        <img src="/assets/img/projects/dos-wireshark.png" alt="Wireshark capture showing SYN flood indicators" loading="lazy" />
+        <figcaption>DoS / SYN Flood Traffic Analysis</figcaption>
+      </figure>
+
+      <!-- SLIDE 4 -->
+      <figure class="carousel__slide" aria-label="4 of 4">
+        <img src="/assets/img/projects/ports-recon.png" alt="Ports and exposure assessment report" loading="lazy" />
+        <figcaption>Port Scanning & Reconnaissance</figcaption>
+      </figure>
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel__btn carousel__btn--prev" aria-label="Previous slide">‹</button>
+    <button class="carousel__btn carousel__btn--next" aria-label="Next slide">›</button>
+
+    <!-- Dots -->
+    <div class="carousel__dots" role="tablist" aria-label="Choose slide"></div>
+  </div>
+</section>
 
 
 <main>
