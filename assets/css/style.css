@@ -9,50 +9,67 @@ footer{border-top:1px solid #eee;padding:18px 22px;text-align:center;margin-top:
 img{max-width:100%;height:auto;border-radius:10px}
 a:hover{text-decoration:underline}
 
-/* ─── BRAND LOGO BADGE ───────────────────────────────────────────── */
-.brand {
+/* Layout for header */
+.site-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  /* keep your existing header background/border colors elsewhere */
 }
 
+/* Brand group */
+.brand {
+  margin: 0;                 /* remove default h1 margin */
+  line-height: 1;
+}
 .brand a {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  gap: 10px;
   text-decoration: none;
   font-family: "Poppins", "Segoe UI", sans-serif;
   font-weight: 600;
-  color: #7c2d12;   /* deep rust for text */
-  font-size: 1.4rem;
+  font-size: 1.35rem;
+  color: #7c2d12;            /* deep rust text */
+  position: relative;
+  z-index: 1;                /* ensure above backgrounds */
 }
 
-/* Small badge with initials */
+/* HIGH-CONTRAST badge — white with terracotta border (unmissable) */
 .logo-badge {
-  background-color: #7c2d12;   /* deeper clay for contrast */
-  color: #fff;
-  font-weight: 700;
-  font-size: 1rem;
+  background-color: #ffffff;
+  color: #b45309;            /* terracotta initials */
+  border: 2px solid #b45309;
+  border-radius: 8px;
   padding: 6px 10px;
-  border-radius: 6px;
-  margin-right: 10px;
+  line-height: 1;
+  font-weight: 700;
   letter-spacing: 0.5px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  transition: transform 0.15s ease, background-color 0.15s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  /* debug outline to guarantee visibility during setup — remove later */
+  outline: 1px solid rgba(0,0,0,0.04);
 }
 
 .brand a:hover .logo-badge {
-  transform: scale(1.05);
-  background-color: #b45309;  /* warm terracotta on hover */
+  background-color: #b45309;
+  color: #ffffff;
 }
 
+.logo-text { color: #7c2d12; }
+.brand a:hover .logo-text { color: #9a3412; }
 
-/* Name text */
-.logo-text {
+/* Nav */
+.site-nav a {
+  margin: 0 10px;
   color: #7c2d12;
+  text-decoration: none;
+  font-weight: 500;
 }
+.site-nav a:hover { color: #9a3412; }
 
-.brand a:hover .logo-text {
-  color: #9a3412;
-}
+/* Make sure nothing is hiding the badge */
+header, .site-header, .brand, .logo-badge { overflow: visible; }
 
 
 /* ─── TERRACOTTA + SLATE THEME ─────────────────────────────── */
