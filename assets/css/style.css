@@ -156,30 +156,26 @@ footer {
 }
 
 
-/* Resume viewer: scale image to fit viewport height, no page scroll needed */
+/* Resume viewer with soft warm blend */
 .resume-viewer {
-  /* Reserve space for header/footer; tweak 160px if your header is taller */
-  height: calc(100vh - 160px);
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 8px;
-  border: 1px solid #eee;
+  align-items: center;
+  padding: 24px;
+  background-color: #f5ece4;  /* warm beige backdrop */
+  border: 1px solid #e7d3c0;  /* subtle terracotta border */
   border-radius: 12px;
-  background: #fafafa;
-  overflow: hidden; /* prevents page scrolling */
+  box-shadow: 0 2px 12px rgba(180,83,9,0.15); /* soft warm glow */
+  margin: 30px 0;
 }
 
-/* Ensure the image fits entirely inside the box */
 .resume-viewer img {
   max-width: 100%;
-  max-height: 100%;
   height: auto;
-  width: auto;
+  border-radius: 8px;
   display: block;
-  border-radius: 6px;
-  box-shadow: 0 2px 16px rgba(0,0,0,.05);
 }
+
 
 /* Two-page layout: vertically center both pages and scale together */
 .resume-viewer.multi {
