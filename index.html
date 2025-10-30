@@ -35,28 +35,86 @@
   <div class="carousel" aria-roledescription="carousel">
     <div class="carousel__viewport" aria-live="polite">
       <!-- SLIDE 1 -->
-      <figure class="carousel__slide" aria-label="1 of 4">
-        <img src="/assets/img/projects/xss-before-after.png" alt="XSS mitigation before/after dashboard" loading="lazy" />
-        <figcaption>XSS Simulation & Hardening (CSP + encoding)</figcaption>
+      <!-- SLIDE 1: TCP/IP SYN Flood -->
+      <figure class="carousel__slide" aria-label="1 of 5">
+        <div class="lab-card" data-href="/projects/tcpip.html">
+          <img class="lab-card__img" src="/assets/img/projects/dos-wireshark.png" alt="Wireshark capture highlighting SYN flood half-open connections" loading="lazy">
+          <div class="lab-card__body">
+            <div class="lab-card__tags">
+              <span class="tag tag--slate">Network</span>
+              <span class="tag tag--amber">Wireshark</span>
+            </div>
+            <h3 class="lab-card__title">TCP/IP SYN Flood Analysis</h3>
+            <p class="lab-card__desc">Simulated SYN floods with <code>nping</code>; analyzed half-open connections and resource exhaustion in Wireshark; discussed defenses (SYN cookies, backlog tuning).</p>
+            <a class="btn" href="/projects/tcpip.html">View Details</a>
+          </div>
+        </div>
+      </figure>
+      
+      <!-- SLIDE 2: XSS -->
+      <figure class="carousel__slide" aria-label="2 of 5">
+        <div class="lab-card" data-href="/projects/xss.html">
+          <img class="lab-card__img" src="/assets/img/projects/xss-before-after.png" alt="Before/after of XSS mitigation with CSP and output encoding" loading="lazy">
+          <div class="lab-card__body">
+            <div class="lab-card__tags">
+              <span class="tag tag--web">Web</span>
+              <span class="tag tag--amber">CSP</span>
+            </div>
+            <h3 class="lab-card__title">XSS Simulation & Mitigation</h3>
+            <p class="lab-card__desc">Demonstrated stored & reflected XSS; implemented defenses via output encoding, input validation, and Content-Security-Policy.</p>
+            <a class="btn" href="/projects/xss.html">View Details</a>
+          </div>
+        </div>
+      </figure>
+      
+      <!-- SLIDE 3: ARP Spoof -->
+      <figure class="carousel__slide" aria-label="3 of 5">
+        <div class="lab-card" data-href="/projects/arp-spoof.html">
+          <img class="lab-card__img" src="/assets/img/projects/arp-spoof.png" alt="Diagram of ARP spoof man-in-the-middle traffic flow" loading="lazy">
+          <div class="lab-card__body">
+            <div class="lab-card__tags">
+              <span class="tag tag--slate">Network</span>
+              <span class="tag tag--green">MITM</span>
+            </div>
+            <h3 class="lab-card__title">ARP Spoofing (MITM)</h3>
+            <p class="lab-card__desc">Manipulated ARP tables to intercept traffic between hosts; captured and analyzed packets; discussed switch-level protections.</p>
+            <a class="btn" href="/projects/arp-spoof.html">View Details</a>
+          </div>
+        </div>
+      </figure>
+      
+      <!-- SLIDE 4: Snort IDS -->
+      <figure class="carousel__slide" aria-label="4 of 5">
+        <div class="lab-card" data-href="/projects/snort.html">
+          <img class="lab-card__img" src="/assets/img/projects/snort-rules.png" alt="Snort rule editor and alert list" loading="lazy">
+          <div class="lab-card__body">
+            <div class="lab-card__tags">
+              <span class="tag tag--slate">Blue Team</span>
+              <span class="tag tag--green">IDS</span>
+            </div>
+            <h3 class="lab-card__title">Snort IDS Configuration</h3>
+            <p class="lab-card__desc">Wrote & tuned Snort rules to detect ICMP/TCP scans; evaluated limits with HTTPS; produced alert screenshots and rationale.</p>
+            <a class="btn" href="/projects/snort.html">View Details</a>
+          </div>
+        </div>
+      </figure>
+      
+      <!-- SLIDE 5: SQLi -->
+      <figure class="carousel__slide" aria-label="5 of 5">
+        <div class="lab-card" data-href="/projects/sqli.html">
+          <img class="lab-card__img" src="/assets/img/projects/sqli.png" alt="SQL injection vulnerable login and parameterized query fix" loading="lazy">
+          <div class="lab-card__body">
+            <div class="lab-card__tags">
+              <span class="tag tag--web">Web</span>
+              <span class="tag tag--green">AppSec</span>
+            </div>
+            <h3 class="lab-card__title">SQL Injection: Exploit & Fix</h3>
+            <p class="lab-card__desc">Exploited vulnerable form to extract data; remediated with parameterized queries and least-privilege DB account.</p>
+            <a class="btn" href="/projects/sqli.html">View Details</a>
+          </div>
+        </div>
       </figure>
 
-      <!-- SLIDE 2 -->
-      <figure class="carousel__slide" aria-label="2 of 4">
-        <img src="/assets/img/projects/network-enum.png" alt="Network enumeration map with services and hosts" loading="lazy" />
-        <figcaption>Network Enumeration & Vulnerability Scan</figcaption>
-      </figure>
-
-      <!-- SLIDE 3 -->
-      <figure class="carousel__slide" aria-label="3 of 4">
-        <img src="/assets/img/projects/dos-wireshark.png" alt="Wireshark capture showing SYN flood indicators" loading="lazy" />
-        <figcaption>DoS / SYN Flood Traffic Analysis</figcaption>
-      </figure>
-
-      <!-- SLIDE 4 -->
-      <figure class="carousel__slide" aria-label="4 of 4">
-        <img src="/assets/img/projects/ports-recon.png" alt="Ports and exposure assessment report" loading="lazy" />
-        <figcaption>Port Scanning & Reconnaissance</figcaption>
-      </figure>
     </div>
 
     <!-- Controls -->
