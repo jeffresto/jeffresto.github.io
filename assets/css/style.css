@@ -176,16 +176,6 @@ footer {
   display: block;
 }
 
-
-/* Two-page layout: vertically center both pages and scale together */
-.resume-viewer.multi {
-  flex-direction: column;
-  gap: 12px;
-}
-.resume-viewer.multi figure {
-  margin: 0;
-}
-
 /* Action row under the viewer */
 .resume-actions {
   text-align: center;
