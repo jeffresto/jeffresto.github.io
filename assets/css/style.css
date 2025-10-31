@@ -134,6 +134,13 @@ main {
   padding: 28px 22px;
 }
 
+.home-gallery {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 22px; /* matches your main content */
+}
+
+
 /* ─── PROJECT CARDS ────────────────────────────────────────── */
 .cards {
   display: grid;
@@ -539,3 +546,35 @@ footer.is-visible {
 .bg-arp       { background-image: url("/assets/img/projects/arp.png"); }
 .bg-snort     { background-image: url("/assets/img/projects/snort.png"); }
 .bg-sqlinject { background-image: url("/assets/img/projects/sqlinjection.png"); }
+
+/* Consistent heading hierarchy */
+h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #7c2d12;      /* warm rust tone */
+  margin: 0 0 14px;
+  line-height: 1.3;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #7c2d12;
+  margin: 28px 0 10px;
+}
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #7c2d12;
+}
+
+.home-gallery h2 {
+  margin-bottom: 16px;
+}
+
+.carousel {
+  margin-top: 20px;
+  margin-bottom: 36px;
+}
