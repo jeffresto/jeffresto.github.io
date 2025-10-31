@@ -57,7 +57,7 @@ header, .site-header, .brand, .logo-badge { overflow:visible; }
 
 .home-gallery h2 {
   position: relative;
-  left: -8px; /* nudges text left slightly to match alignment visually */
+  left: -20px; /* nudges text left slightly to match alignment visually */
 }
 
 
