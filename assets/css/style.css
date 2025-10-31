@@ -201,7 +201,14 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 }
 
 
-/* Dots — repositioned below card and always visible */
+/* Dots — slightly higher for perfect positioning */
+.carousel__dots-wrapper {
+  position: relative;
+  top: 12px; /* reduced from 30px — moves dots upward */
+  display: flex;
+  justify-content: center;
+}
+
 .carousel__dots {
   position: absolute;
   left: 50%;
@@ -217,15 +224,6 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
   z-index: 5;
 }
 
-/* Shift the entire dot wrapper down visually */
-.carousel__dots-wrapper {
-  position: relative;
-  top: 30px; /* moves dots below card */
-  display: flex;
-  justify-content: center;
-}
-
-/* Dots themselves */
 .carousel__dots button {
   width: 10px;
   height: 10px;
@@ -239,6 +237,7 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 .carousel__dots button[aria-selected="true"] {
   background: #b45309;
 }
+
 
 
 /* ─── LAB CARD BACKGROUNDS ───────────────────────────────────── */
