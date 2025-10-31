@@ -349,17 +349,44 @@
 })();
 </script>
 
-<!-- Make the whole card clickable (JS-safe version) -->
 <script>
-  document.querySelectorAll('.lab-card[data-href]').forEach(card => {
+  // Flip on card click (but let the button links work normally)
+  document.querySelectorAll('.lab-card').forEach(card => {
     card.addEventListener('click', (e) => {
-      // ignore clicks on the inner "View Details" link
-      if (e.target && e.target.closest && e.target.closest('a')) return;
-      const url = card.getAttribute('data-href');
-      if (url) window.location.href = url;
+      const anchor = e.target && e.target.closest ? e.target.closest('a') : null;
+      if (anchor) return; // don't flip when clicking the View Details button
+      card.classList.toggle('is-flipped');
     });
   });
-</script>
 
+  // Unflip all cards when the carousel changes slides
+  (function(){
+    const root = document.querySelector('.carousel');
+    if (!root) return;
+
+    const slides = Array.from(root.querySelectorAll('.carousel__slide'));
+    const dotsWrap = root.querySelector('.carousel__dots');
+    const prevBtn  = root.querySelector('.carousel__btn--prev');
+    const nextBtn  = root.querySelector('.carousel__btn--next');
+
+    function unflipAll() {
+      slides.forEach(slide => {
+        const card = slide.querySelector('.lab-card');
+        if (card) card.classList.remove('is-flipped');
+      });
+    }
+
+    // Unflip before manual nav
+    nextBtn && nextBtn.addEventListener('click', unflipAll, { capture: true });
+    prevBtn && prevBtn.addEventListener('click', unflipAll, { capture: true });
+    dotsWrap && dotsWrap.addEventListener('click', unflipAll, { capture: true });
+
+    // Unflip on auto-advance: observe aria-selected change on dots
+    if (dotsWrap) {
+      const mo = new MutationObserver(unflipAll);
+      mo.observe(dotsWrap, { subtree: true, attributes: true, attributeFilter: ['aria-selected'] });
+    }
+  })();
+</script>
 </body>
 </html>
