@@ -339,21 +339,33 @@ footer.is-visible {
 
 /* Viewport / track */
 .carousel__viewport {
-  display: flex;
-  transition: transform .5s ease;
-  will-change: transform;
+  position: relative;      /* was just display:flex */
+  display: block;          /* no flex needed for fade */
+  transition: none;        /* remove transform animation */
+  will-change: auto;
 }
 
-/* Slides — one card per slide, centered */
+
+/* One card per slide, centered, overlapped */
 .carousel__slide {
-  min-width: 100%;
-  flex: 0 0 100%;
+  position: absolute;
+  inset: 0;                /* fill the viewport */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px; /* space around the card */
   margin: 0;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .8s ease;   /* fade duration */
 }
+
+/* the visible slide */
+.carousel__slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 
 /* Card sizing inside the slide */
 .lab-card {
@@ -362,6 +374,17 @@ footer.is-visible {
   aspect-ratio: 1 / 1; /* keep it a square */
 }
 
+/* Responsive card sizing */
+@media (max-width: 768px) {
+  .lab-card {
+    width: 95%;         /* nearly full width on tablets/phones */
+    max-width: none;    /* allow natural scaling */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel__slide { transition: none; }
+}
 
 
 .carousel__slide img {
