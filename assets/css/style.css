@@ -343,21 +343,12 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 .lab-card__desc {
   text-shadow: 0 1px 2px rgba(0,0,0,.18);
 }
-/* Local scrim behind the body content (front & back) */
-.lab-card__body {
-  position: relative;
-}
 
-.lab-card__body::before {
-  content: "";
-  position: absolute;
-  inset: 8px;                 /* inner margin so it breathes */
-  border-radius: 12px;
-  background: rgba(250,246,242,.78); /* warm translucent panel */
-  backdrop-filter: blur(2px);        /* softens busy backgrounds */
-  -webkit-backdrop-filter: blur(2px);
-  z-index: 0;
+/* Soft chip background just behind titles */
+.lab-card__title {
+  display: inline-block;
+  background: rgba(250,246,242,.88); /* warm off-white to match theme */
+  padding: 6px 10px;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.06);
 }
-
-/* ensure text sits above the scrim */
-.lab-card__body > * { position: relative; z-index: 1; }
