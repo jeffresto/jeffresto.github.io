@@ -307,3 +307,33 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 .lab-card { cursor: pointer; }
 .lab-card a.btn { cursor: pointer; }
 
+/* ===== Watermark background on the BACK face (very subtle) ===== */
+.lab-card__face--back {
+  position: relative;
+  overflow: hidden; /* ensure watermark stays clipped */
+}
+
+/* Generic watermark layer */
+.lab-card__face--back::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: .06;                 /* subtlety */
+  filter: saturate(.6) blur(1px);
+  z-index: 0;                   /* behind content */
+}
+
+/* Make sure back-face content stays above the watermark */
+.lab-card__face--back .lab-card__body { position: relative; z-index: 1; }
+
+/* Map each card to its matching image */
+.bg-tcp .lab-card__face--back::before       { background-image: url("/assets/img/projects/tcp.png"); }
+.bg-xss .lab-card__face--back::before       { background-image: url("/assets/img/projects/xss.png"); }
+.bg-arp .lab-card__face--back::before       { background-image: url("/assets/img/projects/arp.png"); }
+.bg-snort .lab-card__face--back::before     { background-image: url("/assets/img/projects/snort.png"); }
+.bg-sqlinject .lab-card__face--back::before { background-image: url("/assets/img/projects/sqlinjection.png"); }
+
+/* Optional: a hair more visible while flipped */
+.lab-card.is-flipped .lab-card__face--back::before { opacity: .085; }
