@@ -46,13 +46,20 @@ header, .site-header, .brand, .logo-badge { overflow:visible; }
 .home-gallery {
   max-width: 980px;
   margin: 0 auto;
-  padding: 28px 0;
+  padding: 28px 22px; /* back to original padding */
 }
 
 .home-gallery h2 {
-  margin-left: 22px; /* aligns perfectly with main content */
   margin-bottom: 16px;
+  text-align: left; /* ensures it’s not centered */
+  padding-left: 0;  /* remove any leftover indentation */
 }
+
+.home-gallery h2 {
+  position: relative;
+  left: -6px; /* nudges text left slightly to match alignment visually */
+}
+
 
 /* Headings */
 h2 {
