@@ -337,13 +337,15 @@ footer.is-visible {
   margin-top: 14px;
 }
 
-/* Viewport / track */
+/* Viewport / track — give it a real height so absolutely-positioned slides can show */
 .carousel__viewport {
-  position: relative;      /* was just display:flex */
-  display: block;          /* no flex needed for fade */
-  transition: none;        /* remove transform animation */
+  position: relative;
+  display: block;
+  height: clamp(340px, 55vw, 560px); /* responsive height */
+  transition: none;
   will-change: auto;
 }
+
 
 
 /* One card per slide, centered, overlapped */
@@ -366,21 +368,31 @@ footer.is-visible {
   pointer-events: auto;
 }
 
-
-/* Card sizing inside the slide */
 .lab-card {
-  width: 80%;          /* narrower than the carousel container */
-  max-width: 500px;    /* don’t let it stretch too wide on large screens */
-  aspect-ratio: 1 / 1; /* keep it a square */
+  position: relative;
+  width: 80%;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #1f2937;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.lab-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+@media (max-width: 768px) {
+  .lab-card { width: 95%; max-width: none; }
 }
 
-/* Responsive card sizing */
-@media (max-width: 768px) {
-  .lab-card {
-    width: 95%;         /* nearly full width on tablets/phones */
-    max-width: none;    /* allow natural scaling */
-  }
-}
 
 @media (prefers-reduced-motion: reduce) {
   .carousel__slide { transition: none; }
@@ -443,29 +455,6 @@ footer.is-visible {
 /* Responsive */
 @media (max-width: 640px) {
   .carousel__btn { display: none; } /* keep it clean; swipe handles nav */
-}
-
-
-/* ─── LAB CARD STYLING ────────────────────────────────────────── */
-.lab-card {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1;  /* makes it a square */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 14px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end; /* keep text near bottom */
-  color: #1f2937;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-.lab-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
 /* Soft overlay for readability */
