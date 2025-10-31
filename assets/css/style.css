@@ -372,3 +372,37 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
                0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
+/* === SOLID FRONT, GRADIENT BACK — OVERRIDES (paste at end) === */
+
+/* FRONT: remove any overlays so the image is fully solid */
+.lab-card__face--front::before {
+  content: none !important;
+}
+
+/* Remove the global card dim/filter you added earlier */
+.lab-card::before {
+  content: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Keep titles readable with a subtle shadow only on text */
+.lab-card__title,
+.lab-card__desc,
+.lab-card__tags,
+.lab-card .btn {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 1px 2px rgba(0,0,0,.22);
+}
+
+/* BACK: soft terracotta slate gradient instead of pure white */
+.lab-card__face--back {
+  background: linear-gradient(135deg, #faf6f2 0%, #e7d3c0 100%) !important;
+  border: 1px solid #e5e7eb;
+  transform: rotateY(180deg);
+}
+
+/* Optional: slightly more visible watermark when flipped */
+.lab-card.is-flipped .lab-card__face--back::before {
+  opacity: .08 !important;
+}
