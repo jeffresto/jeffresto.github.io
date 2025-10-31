@@ -43,7 +43,7 @@ footer.is-visible { opacity:1; transform:none; }
 header, .site-header, .brand, .logo-badge { overflow:visible; }
 
 /* ─── HOME: align Project Gallery like main ───────────────────── */
-.home-gallery { max-width:980px; margin:0 auto; padding:28px 22px; }
+.home-gallery { max-width:980px; margin:0 auto; padding:28px 0 28px 22px; }
 .home-gallery h2 { margin-bottom:16px; }
 
 /* Headings */
