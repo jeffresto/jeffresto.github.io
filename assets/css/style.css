@@ -204,7 +204,7 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 /* Dots — slightly higher for perfect positioning */
 .carousel__dots-wrapper {
   position: relative;
-  top: 12px; /* reduced from 30px — moves dots upward */
+  top: 8px; /* reduced from 30px — moves dots upward */
   display: flex;
   justify-content: center;
 }
