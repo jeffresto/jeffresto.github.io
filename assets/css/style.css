@@ -344,4 +344,31 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
   text-shadow: 0 1px 2px rgba(0,0,0,.18);
 }
 
+/* Make background text tuck behind card titles */
+.lab-card {
+  position: relative;
+  isolation: isolate; /* create its own stacking context */
+  overflow: hidden;
+}
+
+/* Darken the background slightly to help text pop */
+.lab-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(250, 246, 242, 0.6); /* lighter filter */
+  mix-blend-mode: multiply; /* blends softly without flattening */
+  z-index: 0; /* stays behind text but above background image */
+}
+
+/* Add a subtle shadow behind the text to separate it */
+.lab-card__title,
+.lab-card__desc,
+.lab-card__tags,
+.lab-card .btn {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6),
+               0 2px 6px rgba(0, 0, 0, 0.25);
+}
 
