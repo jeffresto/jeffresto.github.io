@@ -207,6 +207,17 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
   display:flex; gap:8px; padding:6px 10px; background:rgba(255,255,255,.7);
   border:1px solid #e7d3c0; border-radius:999px; backdrop-filter:blur(4px);
 }
+
+/* Lower the carousel dots so they sit below the card, not on it */
+.carousel__dots {
+  bottom: -25px; /* moves dots slightly below the carousel */
+}
+
+/* Optional: add extra space below the carousel to prevent clipping */
+.carousel {
+  margin-bottom: 56px; /* gives room for the dots and better spacing */
+}
+
 .carousel__dots button {
   width:10px; height:10px; border-radius:50%; border:1px solid #b45309; background:#fff; padding:0; cursor:pointer;
 }
