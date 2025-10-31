@@ -219,3 +219,91 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 .bg-arp       { background-image:url("/assets/img/projects/arp.png"); }
 .bg-snort     { background-image:url("/assets/img/projects/snort.png"); }
 .bg-sqlinject { background-image:url("/assets/img/projects/sqlinjection.png"); }
+
+/* ========== FLIP CARD (front/back) + subtle shadow ========== */
+
+/* Parent still controls size; we add 3D perspective for the flip */
+.lab-card {
+  perspective: 1200px;
+  transition: box-shadow .6s ease; /* shadow morph during flip */
+}
+
+/* The inner wrapper flips */
+.lab-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .6s ease;
+}
+
+/* Two faces */
+.lab-card__face {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* FRONT shows the parent's background (bg-*) + a soft readability overlay */
+.lab-card__face--front {
+  /* transparent so the parent's background-image is visible */
+  background: transparent;
+}
+.lab-card__face--front::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(to top,
+              rgba(250,246,242,0.85) 0%,
+              rgba(250,246,242,0.45) 55%,
+              rgba(250,246,242,0.15) 100%);
+  z-index: 0;
+}
+
+/* BACK is a clean white panel */
+.lab-card__face--back {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  transform: rotateY(180deg);
+}
+
+/* We used to draw an overlay on the whole card; disable that now */
+.lab-card::before { content: none !important; }
+
+/* Flip state */
+.lab-card.is-flipped .lab-card__inner {
+  transform: rotateY(180deg);
+}
+
+/* Content above overlays */
+.lab-card__body { position: relative; z-index: 1; padding: 16px; }
+
+/* Subtle shadow morph while flipping */
+.lab-card { box-shadow: 0 3px 10px rgba(0,0,0,0.08); }
+.lab-card.is-flipped { box-shadow: 0 14px 32px rgba(0,0,0,0.18); }
+
+/* Extra soft ground shadow (barely there) that breathes on flip */
+.lab-card__inner::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -8px;
+  height: 16px;
+  border-radius: 50%;
+  filter: blur(8px);
+  background: rgba(0,0,0,0.15);
+  opacity: .0;
+  transition: opacity .6s ease;
+  transform: translateZ(-1px);
+}
+.lab-card.is-flipped .lab-card__inner::after { opacity: .25; }
+
+/* Pointer hint (card flips on click) */
+.lab-card { cursor: pointer; }
+.lab-card a.btn { cursor: pointer; }
+
