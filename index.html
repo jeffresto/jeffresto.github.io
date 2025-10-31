@@ -34,89 +34,165 @@
   <!-- Project Gallery now aligned with main content -->
   <section aria-labelledby="project-gallery" class="home-gallery">
     <h2 id="project-gallery">Project Gallery</h2>
-
     <div class="carousel" aria-roledescription="carousel">
       <div class="carousel__viewport" aria-live="polite">
         <!-- SLIDE 1: TCP/IP SYN Flood -->
         <figure class="carousel__slide" aria-label="1 of 5">
-          <div class="lab-card bg-tcp" data-href="/projects/tcpip.html">
-            <div class="lab-card__body">
-              <div class="lab-card__tags">
-                <span class="tag tag--slate">Network</span>
-                <span class="tag tag--amber">Wireshark</span>
+          <div class="lab-card bg-tcp">
+            <div class="lab-card__inner" aria-live="polite">
+              <!-- FRONT -->
+              <div class="lab-card__face lab-card__face--front">
+                <div class="lab-card__body">
+                  <div class="lab-card__tags">
+                    <span class="tag tag--slate">Network</span>
+                    <span class="tag tag--amber">Wireshark</span>
+                  </div>
+                  <h3 class="lab-card__title">TCP/IP SYN Flood Analysis</h3>
+                </div>
               </div>
-              <h3 class="lab-card__title">TCP/IP SYN Flood Analysis</h3>
-              <p class="lab-card__desc">Simulated SYN floods with <code>nping</code>; analyzed half-open connections and resource exhaustion in Wireshark; discussed defenses (SYN cookies, backlog tuning).</p>
-              <a class="btn" href="/projects/tcpip.html">View Details</a>
+              <!-- BACK -->
+              <div class="lab-card__face lab-card__face--back">
+                <div class="lab-card__body">
+                  <h3 class="lab-card__title">What I did</h3>
+                  <p class="lab-card__desc">
+                    Simulated SYN floods with <code>nping</code>; analyzed half-open connections and resource exhaustion in Wireshark; discussed defenses (SYN cookies, backlog tuning).
+                  </p>
+                  <div class="lab-card__tags" aria-label="Tech">
+                    <span class="tag tag--slate">Network</span>
+                    <span class="tag tag--amber">Wireshark</span>
+                  </div>
+                  <a class="btn" href="/projects/tcpip.html" target="_self" rel="noopener">View Details</a>
+                </div>
+              </div>
             </div>
           </div>
         </figure>
-
+    
         <!-- SLIDE 2: XSS -->
         <figure class="carousel__slide" aria-label="2 of 5">
-          <div class="lab-card bg-xss" data-href="/projects/xss.html">
-            <div class="lab-card__body">
-              <div class="lab-card__tags">
-                <span class="tag tag--web">Web</span>
-                <span class="tag tag--amber">CSP</span>
+          <div class="lab-card bg-xss">
+            <div class="lab-card__inner">
+              <div class="lab-card__face lab-card__face--front">
+                <div class="lab-card__body">
+                  <div class="lab-card__tags">
+                    <span class="tag tag--web">Web</span>
+                    <span class="tag tag--amber">CSP</span>
+                  </div>
+                  <h3 class="lab-card__title">XSS Simulation & Mitigation</h3>
+                </div>
               </div>
-              <h3 class="lab-card__title">XSS Simulation & Mitigation</h3>
-              <p class="lab-card__desc">Demonstrated stored & reflected XSS; implemented defenses via output encoding, input validation, and Content-Security-Policy.</p>
-              <a class="btn" href="/projects/xss.html">View Details</a>
+              <div class="lab-card__face lab-card__face--back">
+                <div class="lab-card__body">
+                  <h3 class="lab-card__title">What I did</h3>
+                  <p class="lab-card__desc">
+                    Demonstrated stored & reflected XSS; implemented defenses via output encoding, input validation, and Content-Security-Policy.
+                  </p>
+                  <div class="lab-card__tags" aria-label="Tech">
+                    <span class="tag tag--web">Web</span>
+                    <span class="tag tag--amber">CSP</span>
+                  </div>
+                  <a class="btn" href="/projects/xss.html" target="_self" rel="noopener">View Details</a>
+                </div>
+              </div>
             </div>
           </div>
         </figure>
-
+    
         <!-- SLIDE 3: ARP Spoof -->
         <figure class="carousel__slide" aria-label="3 of 5">
-          <div class="lab-card bg-arp" data-href="/projects/arp-spoof.html">
-            <div class="lab-card__body">
-              <div class="lab-card__tags">
-                <span class="tag tag--slate">Network</span>
-                <span class="tag tag--green">MITM</span>
+          <div class="lab-card bg-arp">
+            <div class="lab-card__inner">
+              <div class="lab-card__face lab-card__face--front">
+                <div class="lab-card__body">
+                  <div class="lab-card__tags">
+                    <span class="tag tag--slate">Network</span>
+                    <span class="tag tag--green">MITM</span>
+                  </div>
+                  <h3 class="lab-card__title">ARP Spoofing (MITM)</h3>
+                </div>
               </div>
-              <h3 class="lab-card__title">ARP Spoofing (MITM)</h3>
-              <p class="lab-card__desc">Manipulated ARP tables to intercept traffic between hosts; captured and analyzed packets; discussed switch-level protections.</p>
-              <a class="btn" href="/projects/arp-spoof.html">View Details</a>
+              <div class="lab-card__face lab-card__face--back">
+                <div class="lab-card__body">
+                  <h3 class="lab-card__title">What I did</h3>
+                  <p class="lab-card__desc">
+                    Manipulated ARP tables to intercept traffic between hosts; captured and analyzed packets; discussed switch-level protections.
+                  </p>
+                  <div class="lab-card__tags" aria-label="Tech">
+                    <span class="tag tag--slate">Network</span>
+                    <span class="tag tag--green">MITM</span>
+                  </div>
+                  <a class="btn" href="/projects/arp-spoof.html" target="_self" rel="noopener">View Details</a>
+                </div>
+              </div>
             </div>
           </div>
         </figure>
-
+    
         <!-- SLIDE 4: Snort IDS -->
         <figure class="carousel__slide" aria-label="4 of 5">
-          <div class="lab-card bg-snort" data-href="/projects/snort.html">
-            <div class="lab-card__body">
-              <div class="lab-card__tags">
-                <span class="tag tag--slate">Blue Team</span>
-                <span class="tag tag--green">IDS</span>
+          <div class="lab-card bg-snort">
+            <div class="lab-card__inner">
+              <div class="lab-card__face lab-card__face--front">
+                <div class="lab-card__body">
+                  <div class="lab-card__tags">
+                    <span class="tag tag--slate">Blue Team</span>
+                    <span class="tag tag--green">IDS</span>
+                  </div>
+                  <h3 class="lab-card__title">Snort IDS Configuration</h3>
+                </div>
               </div>
-              <h3 class="lab-card__title">Snort IDS Configuration</h3>
-              <p class="lab-card__desc">Wrote & tuned Snort rules to detect ICMP/TCP scans; evaluated limits with HTTPS; produced alert screenshots and rationale.</p>
-              <a class="btn" href="/projects/snort.html">View Details</a>
+              <div class="lab-card__face lab-card__face--back">
+                <div class="lab-card__body">
+                  <h3 class="lab-card__title">What I did</h3>
+                  <p class="lab-card__desc">
+                    Wrote & tuned Snort rules to detect ICMP/TCP scans; evaluated limits with HTTPS; produced alert screenshots and rationale.
+                  </p>
+                  <div class="lab-card__tags" aria-label="Tech">
+                    <span class="tag tag--slate">Blue Team</span>
+                    <span class="tag tag--green">IDS</span>
+                  </div>
+                  <a class="btn" href="/projects/snort.html" target="_self" rel="noopener">View Details</a>
+                </div>
+              </div>
             </div>
           </div>
         </figure>
-
+    
         <!-- SLIDE 5: SQLi -->
         <figure class="carousel__slide" aria-label="5 of 5">
-          <div class="lab-card bg-sqlinject" data-href="/projects/sqli.html">
-            <div class="lab-card__body">
-              <div class="lab-card__tags">
-                <span class="tag tag--web">Web</span>
-                <span class="tag tag--green">AppSec</span>
+          <div class="lab-card bg-sqlinject">
+            <div class="lab-card__inner">
+              <div class="lab-card__face lab-card__face--front">
+                <div class="lab-card__body">
+                  <div class="lab-card__tags">
+                    <span class="tag tag--web">Web</span>
+                    <span class="tag tag--green">AppSec</span>
+                  </div>
+                  <h3 class="lab-card__title">SQL Injection: Exploit & Fix</h3>
+                </div>
               </div>
-              <h3 class="lab-card__title">SQL Injection: Exploit & Fix</h3>
-              <p class="lab-card__desc">Exploited vulnerable form to extract data; remediated with parameterized queries and least-privilege DB account.</p>
-              <a class="btn" href="/projects/sqli.html">View Details</a>
+              <div class="lab-card__face lab-card__face--back">
+                <div class="lab-card__body">
+                  <h3 class="lab-card__title">What I did</h3>
+                  <p class="lab-card__desc">
+                    Exploited a vulnerable form to extract data; remediated with parameterized queries and least-privilege DB account.
+                  </p>
+                  <div class="lab-card__tags" aria-label="Tech">
+                    <span class="tag tag--web">Web</span>
+                    <span class="tag tag--green">AppSec</span>
+                  </div>
+                  <a class="btn" href="/projects/sqli.html" target="_self" rel="noopener">View Details</a>
+                </div>
+              </div>
             </div>
           </div>
         </figure>
       </div>
-
+    
       <!-- Controls -->
       <button class="carousel__btn carousel__btn--prev" aria-label="Previous slide">‹</button>
       <button class="carousel__btn carousel__btn--next" aria-label="Next slide">›</button>
-
+    
       <!-- Dots -->
       <div class="carousel__dots" role="tablist" aria-label="Choose slide"></div>
     </div>
