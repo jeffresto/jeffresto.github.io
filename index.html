@@ -29,100 +29,99 @@
     <a href="mailto:restojeffrey@gmail.com">Contact</a>
   </nav>
 </header>
-<section aria-labelledby="project-gallery" class="home-gallery">
-  <h2 id="project-gallery">Project Gallery</h2>
-
-  <div class="carousel" aria-roledescription="carousel">
-    <div class="carousel__viewport" aria-live="polite">
-      <!-- SLIDE 1 -->
-      <!-- SLIDE 1: TCP/IP SYN Flood -->
-      <figure class="carousel__slide" aria-label="1 of 5">
-        <div class="lab-card bg-tcp" data-href="/projects/tcpip.html">
-          <div class="lab-card__body">
-            <div class="lab-card__tags">
-              <span class="tag tag--slate">Network</span>
-              <span class="tag tag--amber">Wireshark</span>
-            </div>
-            <h3 class="lab-card__title">TCP/IP SYN Flood Analysis</h3>
-            <p class="lab-card__desc">Simulated SYN floods with <code>nping</code>; analyzed half-open connections and resource exhaustion in Wireshark; discussed defenses (SYN cookies, backlog tuning).</p>
-            <a class="btn" href="/projects/tcpip.html">View Details</a>
-          </div>
-        </div>
-      </figure>
-      
-      <!-- SLIDE 2: XSS -->
-      <figure class="carousel__slide" aria-label="2 of 5">
-        <div class="lab-card bg-xss" data-href="/projects/xss.html">
-          <div class="lab-card__body">
-            <div class="lab-card__tags">
-              <span class="tag tag--web">Web</span>
-              <span class="tag tag--amber">CSP</span>
-            </div>
-            <h3 class="lab-card__title">XSS Simulation & Mitigation</h3>
-            <p class="lab-card__desc">Demonstrated stored & reflected XSS; implemented defenses via output encoding, input validation, and Content-Security-Policy.</p>
-            <a class="btn" href="/projects/xss.html">View Details</a>
-          </div>
-        </div>
-      </figure>
-      
-      <!-- SLIDE 3: ARP Spoof -->
-      <figure class="carousel__slide" aria-label="3 of 5">
-        <div class="lab-card bg-arp" data-href="/projects/arp-spoof.html">
-          <div class="lab-card__body">
-            <div class="lab-card__tags">
-              <span class="tag tag--slate">Network</span>
-              <span class="tag tag--green">MITM</span>
-            </div>
-            <h3 class="lab-card__title">ARP Spoofing (MITM)</h3>
-            <p class="lab-card__desc">Manipulated ARP tables to intercept traffic between hosts; captured and analyzed packets; discussed switch-level protections.</p>
-            <a class="btn" href="/projects/arp-spoof.html">View Details</a>
-          </div>
-        </div>
-      </figure>
-      
-      <!-- SLIDE 4: Snort IDS -->
-      <figure class="carousel__slide" aria-label="4 of 5">
-        <div class="lab-card bg-snort" data-href="/projects/snort.html">
-          <div class="lab-card__body">
-            <div class="lab-card__tags">
-              <span class="tag tag--slate">Blue Team</span>
-              <span class="tag tag--green">IDS</span>
-            </div>
-            <h3 class="lab-card__title">Snort IDS Configuration</h3>
-            <p class="lab-card__desc">Wrote & tuned Snort rules to detect ICMP/TCP scans; evaluated limits with HTTPS; produced alert screenshots and rationale.</p>
-            <a class="btn" href="/projects/snort.html">View Details</a>
-          </div>
-        </div>
-      </figure>
-      
-      <!-- SLIDE 5: SQLi -->
-      <figure class="carousel__slide" aria-label="5 of 5">
-        <div class="lab-card bg-sqlinject" data-href="/projects/sqli.html">
-          <div class="lab-card__body">
-            <div class="lab-card__tags">
-              <span class="tag tag--web">Web</span>
-              <span class="tag tag--green">AppSec</span>
-            </div>
-            <h3 class="lab-card__title">SQL Injection: Exploit & Fix</h3>
-            <p class="lab-card__desc">Exploited vulnerable form to extract data; remediated with parameterized queries and least-privilege DB account.</p>
-            <a class="btn" href="/projects/sqli.html">View Details</a>
-          </div>
-        </div>
-      </figure>
-
-    </div>
-
-    <!-- Controls -->
-    <button class="carousel__btn carousel__btn--prev" aria-label="Previous slide">‹</button>
-    <button class="carousel__btn carousel__btn--next" aria-label="Next slide">›</button>
-
-    <!-- Dots -->
-    <div class="carousel__dots" role="tablist" aria-label="Choose slide"></div>
-  </div>
-</section>
-
 
 <main>
+  <!-- Project Gallery now aligned with main content -->
+  <section aria-labelledby="project-gallery" class="home-gallery">
+    <h2 id="project-gallery">Project Gallery</h2>
+
+    <div class="carousel" aria-roledescription="carousel">
+      <div class="carousel__viewport" aria-live="polite">
+        <!-- SLIDE 1: TCP/IP SYN Flood -->
+        <figure class="carousel__slide" aria-label="1 of 5">
+          <div class="lab-card bg-tcp" data-href="/projects/tcpip.html">
+            <div class="lab-card__body">
+              <div class="lab-card__tags">
+                <span class="tag tag--slate">Network</span>
+                <span class="tag tag--amber">Wireshark</span>
+              </div>
+              <h3 class="lab-card__title">TCP/IP SYN Flood Analysis</h3>
+              <p class="lab-card__desc">Simulated SYN floods with <code>nping</code>; analyzed half-open connections and resource exhaustion in Wireshark; discussed defenses (SYN cookies, backlog tuning).</p>
+              <a class="btn" href="/projects/tcpip.html">View Details</a>
+            </div>
+          </div>
+        </figure>
+
+        <!-- SLIDE 2: XSS -->
+        <figure class="carousel__slide" aria-label="2 of 5">
+          <div class="lab-card bg-xss" data-href="/projects/xss.html">
+            <div class="lab-card__body">
+              <div class="lab-card__tags">
+                <span class="tag tag--web">Web</span>
+                <span class="tag tag--amber">CSP</span>
+              </div>
+              <h3 class="lab-card__title">XSS Simulation & Mitigation</h3>
+              <p class="lab-card__desc">Demonstrated stored & reflected XSS; implemented defenses via output encoding, input validation, and Content-Security-Policy.</p>
+              <a class="btn" href="/projects/xss.html">View Details</a>
+            </div>
+          </div>
+        </figure>
+
+        <!-- SLIDE 3: ARP Spoof -->
+        <figure class="carousel__slide" aria-label="3 of 5">
+          <div class="lab-card bg-arp" data-href="/projects/arp-spoof.html">
+            <div class="lab-card__body">
+              <div class="lab-card__tags">
+                <span class="tag tag--slate">Network</span>
+                <span class="tag tag--green">MITM</span>
+              </div>
+              <h3 class="lab-card__title">ARP Spoofing (MITM)</h3>
+              <p class="lab-card__desc">Manipulated ARP tables to intercept traffic between hosts; captured and analyzed packets; discussed switch-level protections.</p>
+              <a class="btn" href="/projects/arp-spoof.html">View Details</a>
+            </div>
+          </div>
+        </figure>
+
+        <!-- SLIDE 4: Snort IDS -->
+        <figure class="carousel__slide" aria-label="4 of 5">
+          <div class="lab-card bg-snort" data-href="/projects/snort.html">
+            <div class="lab-card__body">
+              <div class="lab-card__tags">
+                <span class="tag tag--slate">Blue Team</span>
+                <span class="tag tag--green">IDS</span>
+              </div>
+              <h3 class="lab-card__title">Snort IDS Configuration</h3>
+              <p class="lab-card__desc">Wrote & tuned Snort rules to detect ICMP/TCP scans; evaluated limits with HTTPS; produced alert screenshots and rationale.</p>
+              <a class="btn" href="/projects/snort.html">View Details</a>
+            </div>
+          </div>
+        </figure>
+
+        <!-- SLIDE 5: SQLi -->
+        <figure class="carousel__slide" aria-label="5 of 5">
+          <div class="lab-card bg-sqlinject" data-href="/projects/sqli.html">
+            <div class="lab-card__body">
+              <div class="lab-card__tags">
+                <span class="tag tag--web">Web</span>
+                <span class="tag tag--green">AppSec</span>
+              </div>
+              <h3 class="lab-card__title">SQL Injection: Exploit & Fix</h3>
+              <p class="lab-card__desc">Exploited vulnerable form to extract data; remediated with parameterized queries and least-privilege DB account.</p>
+              <a class="btn" href="/projects/sqli.html">View Details</a>
+            </div>
+          </div>
+        </figure>
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel__btn carousel__btn--prev" aria-label="Previous slide">‹</button>
+      <button class="carousel__btn carousel__btn--next" aria-label="Next slide">›</button>
+
+      <!-- Dots -->
+      <div class="carousel__dots" role="tablist" aria-label="Choose slide"></div>
+    </div>
+  </section>
+
   <section>
     <h2>Cybersecurity Projects & Write-ups</h2>
     <p>Threat detection · Incident response · AppSec · Network security · Python tooling</p>
@@ -131,11 +130,13 @@
   <section aria-labelledby="featured">
     <h3 id="featured">Featured Projects</h3>
     <div class="cards">
-      <!-- Duplicate these cards for 2–3 top projects -->
       <article class="card">
         <h4><a href="/projects/project-template.html">XSS & Web App Hardening Lab</a></h4>
         <p>Identified and mitigated reflected XSS in a demo app; added CSP, output encoding, and input validation.</p>
-        <ul class="meta"><li>Stack: Burp Suite, OWASP ZAP, CSP</li><li>Outcome: blocked payload classes; CSP nonce</li></ul>
+        <ul class="meta">
+          <li>Stack: Burp Suite, OWASP ZAP, CSP</li>
+          <li>Outcome: blocked payload classes; CSP nonce</li>
+        </ul>
       </article>
     </div>
   </section>
@@ -144,17 +145,17 @@
 <footer>
   <small>© <span id="y"></span> Jeffrey Resto · New York, NY</small>
 </footer>
+
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
 <script>
   (function () {
     const footer = document.querySelector('footer');
     if (!footer) return;
 
-    // If user prefers reduced motion, show immediately
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced) { footer.classList.add('is-visible'); return; }
 
-    // Reveal when the footer enters the viewport
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
@@ -165,11 +166,11 @@
     }, { threshold: 0.1 });
 
     io.observe(footer);
-
-    // Fallback: show after 2s in case IO is unsupported
     setTimeout(() => footer.classList.add('is-visible'), 2000);
   })();
 </script>
+
+<!-- Fade carousel logic -->
 <script>
 (function(){
   const root = document.querySelector('.carousel');
@@ -183,7 +184,7 @@
 
   let index = 0;
   let autoTimer = null;
-  const intervalMs = 7000; // your slower pace
+  const intervalMs = 7000; // slower pace
 
   // Build dots
   dotsWrap.innerHTML = '';
@@ -216,8 +217,8 @@
   function prev(){ goTo(index - 1); }
 
   // Buttons
-  nextBtn?.addEventListener('click', next);
-  prevBtn?.addEventListener('click', prev);
+  nextBtn && nextBtn.addEventListener('click', next);
+  prevBtn && prevBtn.addEventListener('click', prev);
 
   // Keyboard
   root.addEventListener('keydown', (e) => {
@@ -249,7 +250,7 @@
     if (document.hidden) stopAuto(); else startAuto();
   });
 
-  // Touch swipe still changes slides
+  // Touch swipe
   let startX = 0, dx = 0, swiping = false;
   viewport.addEventListener('touchstart', (e) => {
     swiping = true;
@@ -266,17 +267,18 @@
     swiping = false; dx = 0; startAuto();
   });
 
-  // Init: set the first slide visible
+  // Init
   slides.forEach(s => s.classList.remove('is-active'));
   goTo(0);
 })();
 </script>
 
+<!-- Make the whole card clickable (JS-safe version) -->
 <script>
   document.querySelectorAll('.lab-card[data-href]').forEach(card => {
     card.addEventListener('click', (e) => {
       // ignore clicks on the inner "View Details" link
-      if ((e.target as HTMLElement).closest('a')) return;
+      if (e.target && e.target.closest && e.target.closest('a')) return;
       const url = card.getAttribute('data-href');
       if (url) window.location.href = url;
     });
