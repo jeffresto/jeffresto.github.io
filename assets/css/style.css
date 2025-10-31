@@ -160,6 +160,32 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 .carousel__btn--prev { left:10px; }
 .carousel__btn--next { right:10px; }
 
+/* Hide arrows by default, show on hover or keyboard focus */
+.carousel__btn {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .15s ease, background .15s ease;
+}
+
+.carousel:hover .carousel__btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Still visible when navigating with keyboard */
+.carousel__btn:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+  outline: 2px solid #b45309;
+  outline-offset: 2px;
+}
+
+/* Optional: on touch devices (no hover), keep arrows hidden */
+@media (hover: none) {
+  .carousel__btn { display: none; }
+}
+
+
 /* Dots */
 .carousel__dots {
   position:absolute; left:50%; bottom:10px; transform:translateX(-50%);
