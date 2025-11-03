@@ -1,15 +1,15 @@
 /* ─── LAYOUT: sticky footer ───────────────────────────────────── */
 html, body { height: 100%; }
-body { display: flex; flex-direction: column; margin: 0; font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto; }
-main { flex: 1; max-width: 980px; margin: 0 auto; padding: 28px 22px; }
 * { box-sizing: border-box; }
+body {
+  display: flex; flex-direction: column; margin: 0;
+  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background-color: #faf6f2; color: #1f2937;
+}
+main { flex: 1; max-width: 980px; margin: 0 auto; padding: 28px 22px; }
 img { max-width: 100%; height: auto; border-radius: 10px; }
-a:hover { text-decoration: underline; }
-
-/* ─── THEME: terracotta + slate ──────────────────────────────── */
-body { background-color:#faf6f2; color:#1f2937; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
 a { color:#b45309; text-decoration:none; }
-a:hover { color:#92400e; }
+a:hover { color:#92400e; text-decoration: underline; }
 
 /* ─── HEADER / NAV / FOOTER ──────────────────────────────────── */
 .site-header { display:flex; align-items:center; justify-content:space-between; padding:18px 22px; }
@@ -22,8 +22,12 @@ header, footer {
 nav a { color:#7c2d12; margin:0 10px; font-weight:500; }
 nav a:hover { color:#9a3412; }
 
-/* Sticky footer keeps this; do NOT override margin-top later */
-footer { margin-top: auto; text-align:center; color:#4b5563; opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease; will-change:opacity,transform; }
+/* Sticky footer animation */
+footer {
+  margin-top: auto; text-align:center; color:#4b5563;
+  opacity:0; transform:translateY(12px);
+  transition:opacity .6s ease, transform .6s ease; will-change:opacity,transform;
+}
 footer.is-visible { opacity:1; transform:none; }
 @media (prefers-reduced-motion: reduce) { footer { transition:none; opacity:1; transform:none; } }
 
@@ -42,26 +46,14 @@ footer.is-visible { opacity:1; transform:none; }
 .brand a:hover .logo-text { color:#9a3412; }
 header, .site-header, .brand, .logo-badge { overflow:visible; }
 
-/* ─── HOME: align Project Gallery like main ───────────────────── */
-.home-gallery {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 28px 22px; /* back to original padding */
-}
-
+/* ─── HOME: Project Gallery alignment ────────────────────────── */
+.home-gallery { max-width:980px; margin:0 auto; padding:28px 22px; }
 .home-gallery h2 {
-  margin-bottom: 16px;
-  text-align: left; /* ensures it’s not centered */
-  padding-left: 0;  /* remove any leftover indentation */
+  margin-bottom:16px; text-align:left; padding-left:0;
+  position:relative; left:-22px; /* your chosen nudge */
 }
 
-.home-gallery h2 {
-  position: relative;
-  left: -22px; /* nudges text left slightly to match alignment visually */
-}
-
-
-/* Headings */
+/* ─── HEADINGS ───────────────────────────────────────────────── */
 h2 {
   font-size:1.8rem; font-weight:600; color:#7c2d12; margin:0 0 14px; line-height:1.3;
   font-family:"Poppins","Segoe UI",sans-serif;
@@ -69,7 +61,7 @@ h2 {
 h3 { font-size:1.35rem; font-weight:600; color:#7c2d12; margin:28px 0 10px; }
 h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 
-/* ─── PROJECT CARDS (grid below the carousel) ─────────────────── */
+/* ─── CARDS (grid sections) ──────────────────────────────────── */
 .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin-top:20px; }
 .card {
   background:#fff; padding:16px; border-radius:12px; border:1px solid #e5e7eb;
@@ -79,7 +71,7 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 .card a { color:#b45309; }
 .card a:hover { color:#92400e; }
 
-/* ─── RESUME VIEWER (image version) ───────────────────────────── */
+/* ─── RESUME VIEWER (image version) ──────────────────────────── */
 .resume-viewer { background:transparent; border:none; box-shadow:none; padding:0; display:flex; justify-content:center; align-items:center; }
 .resume-viewer img { max-width:95%; border-radius:8px; display:block; }
 .resume-actions { text-align:center; margin:10px 0 0; }
@@ -88,9 +80,8 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
   text-align:center; font-size:.95rem; color:#7c2d12; background:#f5ece4; display:inline-block; padding:6px 14px;
   border-radius:20px; border:1px solid #e7d3c0; margin:10px auto 6px; box-shadow:0 2px 5px rgba(0,0,0,.05);
 }
-@media (max-width:640px) { main { padding:20px 16px; } .resume-viewer { height:auto; overflow:visible; } }
 
-/* ─── CREDENTIALS ─────────────────────────────────────────────── */
+/* ─── CREDENTIALS ────────────────────────────────────────────── */
 .lead { color:#374151; margin-top:4px; }
 .cred-section { margin-top:24px; }
 .cred-card {
@@ -116,7 +107,7 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 .pill-list { list-style:none; padding:0; margin:8px 0 0; display:flex; flex-wrap:wrap; gap:8px; }
 .pill-list li { background:#fff; border:1px solid #e5e7eb; border-radius:999px; padding:6px 12px; color:#374151; }
 
-/* ─── CAROUSEL (fade) ─────────────────────────────────────────── */
+/* ─── CAROUSEL (fade) ────────────────────────────────────────── */
 .carousel {
   position:relative; overflow:hidden; border-radius:14px; background:#f5ece4; border:1px solid #e7d3c0;
   box-shadow:0 4px 14px rgba(0,0,0,.08); margin-top:20px; margin-bottom:36px;
@@ -126,7 +117,6 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
   position:relative; display:block; height:clamp(340px, 55vw, 560px);
   transition:none; will-change:auto;
 }
-/* One card per slide; overlapped; cross-fade */
 .carousel__slide {
   position:absolute; inset:0; display:flex; justify-content:center; align-items:center;
   margin:0; padding:20px; opacity:0; pointer-events:none; transition:opacity .8s ease;
@@ -134,111 +124,38 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 .carousel__slide.is-active { opacity:1; pointer-events:auto; }
 @media (prefers-reduced-motion: reduce) { .carousel__slide { transition:none; } }
 
-/* Card sizing inside slide */
-.lab-card {
-  position:relative; width:80%; max-width:500px; aspect-ratio:1 / 1;
-  background-size:cover; background-position:center; background-repeat:no-repeat;
-  border-radius:14px; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; color:#1f2937;
-  box-shadow:0 3px 10px rgba(0,0,0,.08); transition:transform .2s ease, box-shadow .2s ease;
-}
-.lab-card:hover { transform:translateY(-4px); box-shadow:0 6px 16px rgba(0,0,0,.15); }
-@media (max-width:768px) { .lab-card { width:95%; max-width:none; } }
-
-/* Readability overlay */
-.lab-card::before {
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(to top, rgba(250,246,242,.85) 0%, rgba(250,246,242,.45) 55%, rgba(250,246,242,.15) 100%);
-  z-index:0;
-}
-/* Internal content */
-.lab-card__body { position:relative; z-index:1; padding:16px; }
-.lab-card__title { font-size:1.05rem; font-weight:600; margin:0 0 6px; color:#1f2937; }
-.lab-card__desc { font-size:.9rem; color:#374151; margin-bottom:10px; }
-.lab-card__tags { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px; }
-
-/* Buttons & tags */
-.btn { display:inline-block; padding:8px 12px; background:#b45309; color:#fff; border-radius:8px; text-decoration:none; border:1px solid #b45309; font-weight:600; }
-.btn:hover { background:#92400e; border-color:#92400e; }
-.tag { display:inline-block; font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid transparent; font-weight:600; }
-.tag--slate{background:#e5e7eb;color:#1f2937;border-color:#9ca3af;}
-.tag--amber{background:#fef3c7;color:#92400e;border-color:#f59e0b;}
-.tag--web{background:#ffe9e0;color:#9a3412;border-color:#f4b29a;}
-.tag--green{background:#dcfce7;color:#065f46;border-color:#10b981;}
-
 /* Controls */
 .carousel__btn {
   position:absolute; top:50%; transform:translateY(-50%); border:1px solid #d6bfa9; background:#fff; color:#7c2d12;
   width:36px; height:36px; border-radius:10px; cursor:pointer; display:grid; place-items:center;
-  box-shadow:0 2px 6px rgba(0,0,0,.08); transition:transform .15s ease, background .15s ease;
+  box-shadow:0 2px 6px rgba(0,0,0,.08); transition:opacity .2s ease, transform .15s ease, background .15s ease;
+  opacity:0; pointer-events:none;
 }
 .carousel__btn:hover { transform:translateY(-50%) scale(1.05); background:#fff8f0; }
 .carousel__btn--prev { left:10px; }
 .carousel__btn--next { right:10px; }
-
-/* Hide arrows by default, show on hover or keyboard focus */
-.carousel__btn {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .2s ease, transform .15s ease, background .15s ease;
-}
-
-.carousel:hover .carousel__btn {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Still visible when navigating with keyboard */
+.carousel:hover .carousel__btn { opacity:1; pointer-events:auto; }
 .carousel__btn:focus-visible {
-  opacity: 1;
-  pointer-events: auto;
-  outline: 2px solid #b45309;
-  outline-offset: 2px;
+  opacity:1; pointer-events:auto; outline:2px solid #b45309; outline-offset:2px;
 }
-
-/* Optional: on touch devices (no hover), keep arrows hidden */
-@media (hover: none) {
-  .carousel__btn { display: none; }
-}
-
+@media (hover: none) { .carousel__btn { display:none; } }
 
 /* Dots — slightly higher for perfect positioning */
 .carousel__dots-wrapper {
   position: relative;
-  top: 8px; /* reduced from 30px — moves dots upward */
+  top: 8px;
   display: flex;
   justify-content: center;
 }
-
 .carousel__dots {
-  position: absolute;
-  left: 50%;
-  bottom: 10px;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  padding: 6px 10px;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid #e7d3c0;
-  border-radius: 999px;
-  backdrop-filter: blur(4px);
-  z-index: 5;
+  position:absolute; left:50%; bottom:10px; transform:translateX(-50%);
+  display:flex; gap:8px; padding:6px 10px; background:rgba(255,255,255,.7);
+  border:1px solid #e7d3c0; border-radius:999px; backdrop-filter:blur(4px); z-index:5;
 }
-
 .carousel__dots button {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 1px solid #b45309;
-  background: #fff;
-  padding: 0;
-  cursor: pointer;
+  width:10px; height:10px; border-radius:50%; border:1px solid #b45309; background:#fff; padding:0; cursor:pointer;
 }
-
-.carousel__dots button[aria-selected="true"] {
-  background: #b45309;
-}
-
-
+.carousel__dots button[aria-selected="true"] { background:#b45309; }
 
 /* ─── LAB CARD BACKGROUNDS ───────────────────────────────────── */
 .bg-tcp       { background-image:url("/assets/img/projects/tcp.png"); }
@@ -247,391 +164,91 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 .bg-snort     { background-image:url("/assets/img/projects/snort.png"); }
 .bg-sqlinject { background-image:url("/assets/img/projects/sqlinjection.png"); }
 
-/* ========== FLIP CARD (front/back) + subtle shadow ========== */
-
-/* Parent still controls size; we add 3D perspective for the flip */
+/* ─── LAB CARD: base sizing/shape ────────────────────────────── */
 .lab-card {
-  perspective: 1200px;
-  transition: box-shadow .6s ease; /* shadow morph during flip */
+  position:relative; width:80%; max-width:500px; aspect-ratio:1 / 1;
+  background-size:cover; background-position:center; background-repeat:no-repeat;
+  border-radius:14px; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; color:#1f2937;
+  box-shadow:0 3px 10px rgba(0,0,0,0.08); transition:transform .2s ease, box-shadow .2s ease;
+  perspective: 1200px; /* for flip */
+  cursor: pointer;
 }
+.lab-card:hover { transform:translateY(-4px); box-shadow:0 6px 16px rgba(0,0,0,0.15); }
+@media (max-width:768px) { .lab-card { width:95%; max-width:none; } }
 
-/* The inner wrapper flips */
+/* Flip inner wrapper */
 .lab-card__inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform .6s ease;
+  position: relative; width: 100%; height: 100%;
+  transform-style: preserve-3d; transition: transform .6s ease;
 }
+.lab-card.is-flipped .lab-card__inner { transform: rotateY(180deg); }
 
-/* Two faces */
+/* Faces */
 .lab-card__face {
-  position: absolute;
-  inset: 0;
-  border-radius: 14px;
-  backface-visibility: hidden;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  position:absolute; inset:0; border-radius:14px; backface-visibility:hidden; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:flex-end;
 }
+.lab-card__face--front { background: transparent; }
+.lab-card__face--front::before { content: none !important; } /* solid image on front */
 
-/* FRONT shows the parent's background (bg-*) + a soft readability overlay */
-.lab-card__face--front {
-  /* transparent so the parent's background-image is visible */
-  background: transparent;
-}
-.lab-card__face--front::before {
-  content: "";
-  position: absolute; inset: 0;
-  background: linear-gradient(to top,
-              rgba(250,246,242,0.85) 0%,
-              rgba(250,246,242,0.45) 58%,
-              rgba(250,246,242,0.15) 100%);
-  z-index: 0;
-}
-
-/* BACK is a clean white panel */
-.lab-card__face--back {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  transform: rotateY(180deg);
-}
-
-/* We used to draw an overlay on the whole card; disable that now */
-.lab-card::before { content: none !important; }
-
-/* Flip state */
-.lab-card.is-flipped .lab-card__inner {
-  transform: rotateY(180deg);
-}
-
-/* Content above overlays */
-.lab-card__body { position: relative; z-index: 1; padding: 16px; }
-
-/* Subtle shadow morph while flipping */
-.lab-card { box-shadow: 0 3px 10px rgba(0,0,0,0.08); }
-.lab-card.is-flipped { box-shadow: 0 14px 32px rgba(0,0,0,0.18); }
-
-/* Extra soft ground shadow (barely there) that breathes on flip */
-.lab-card__inner::after {
-  content: "";
-  position: absolute;
-  left: 10%;
-  right: 10%;
-  bottom: -8px;
-  height: 16px;
-  border-radius: 50%;
-  filter: blur(8px);
-  background: rgba(0,0,0,0.15);
-  opacity: .0;
-  transition: opacity .6s ease;
-  transform: translateZ(-1px);
-}
-.lab-card.is-flipped .lab-card__inner::after { opacity: .25; }
-
-/* Pointer hint (card flips on click) */
-.lab-card { cursor: pointer; }
-.lab-card a.btn { cursor: pointer; }
-
-/* ===== Watermark background on the BACK face (very subtle) ===== */
-.lab-card__face--back {
-  position: relative;
-  overflow: hidden; /* ensure watermark stays clipped */
-}
-
-/* Generic watermark layer */
-.lab-card__face--back::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: .06;                 /* subtlety */
-  filter: saturate(.6) blur(1px);
-  z-index: 0;                   /* behind content */
-}
-
-/* Make sure back-face content stays above the watermark */
-.lab-card__face--back .lab-card__body { position: relative; z-index: 1; }
-
-/* Map each card to its matching image */
-.bg-tcp .lab-card__face--back::before       { background-image: url("/assets/img/projects/tcp.png"); }
-.bg-xss .lab-card__face--back::before       { background-image: url("/assets/img/projects/xss.png"); }
-.bg-arp .lab-card__face--back::before       { background-image: url("/assets/img/projects/arp.png"); }
-.bg-snort .lab-card__face--back::before     { background-image: url("/assets/img/projects/snort.png"); }
-.bg-sqlinject .lab-card__face--back::before { background-image: url("/assets/img/projects/sqlinjection.png"); }
-
-/* Optional: a hair more visible while flipped */
-.lab-card.is-flipped .lab-card__face--back::before { opacity: .085; }
-
-/* Subtle lift for titles and descriptions */
-.lab-card__title,
-.lab-card__desc {
-  text-shadow: 0 1px 2px rgba(0,0,0,.18);
-}
-
-/* Make background text tuck behind card titles */
-.lab-card {
-  position: relative;
-  isolation: isolate; /* create its own stacking context */
-  overflow: hidden;
-}
-
-/* Darken the background slightly to help text pop */
-.lab-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(250, 246, 242, 0.6); /* lighter filter */
-  mix-blend-mode: multiply; /* blends softly without flattening */
-  z-index: 0; /* stays behind text but above background image */
-}
-
-/* Add a subtle shadow behind the text to separate it */
-.lab-card__title,
-.lab-card__desc,
-.lab-card__tags,
-.lab-card .btn {
-  position: relative;
-  z-index: 1;
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6),
-               0 2px 6px rgba(0, 0, 0, 0.25);
-}
-
-/* === SOLID FRONT, GRADIENT BACK — OVERRIDES (paste at end) === */
-
-/* FRONT: remove any overlays so the image is fully solid */
-.lab-card__face--front::before {
-  content: none !important;
-}
-
-/* Remove the global card dim/filter you added earlier */
-.lab-card::before {
-  content: none !important;
-  mix-blend-mode: normal !important;
-}
-
-/* Keep titles readable with a subtle shadow only on text */
-.lab-card__title,
-.lab-card__desc,
-.lab-card__tags,
-.lab-card .btn {
-  position: relative;
-  z-index: 1;
-  text-shadow: 0 1px 2px rgba(0,0,0,.22);
-}
-
-/* BACK: soft terracotta slate gradient instead of pure white */
+/* Back face with subtle gradient + watermark */
 .lab-card__face--back {
   background: linear-gradient(135deg, #faf6f2 0%, #e7d3c0 100%) !important;
-  border: 1px solid #e5e7eb;
-  transform: rotateY(180deg);
+  border: 1px solid #e5e7eb; transform: rotateY(180deg); position:relative; overflow:hidden;
 }
-
-/* Optional: slightly more visible watermark when flipped */
-.lab-card.is-flipped .lab-card__face--back::before {
-  opacity: .08 !important;
+.lab-card__face--back::before {
+  content:""; position:absolute; inset:0; background-size:cover; background-position:center;
+  opacity:.06; filter:saturate(.6) blur(1px); z-index:0;
 }
+.bg-tcp .lab-card__face--back::before       { background-image:url("/assets/img/projects/tcp.png"); }
+.bg-xss .lab-card__face--back::before       { background-image:url("/assets/img/projects/xss.png"); }
+.bg-arp .lab-card__face--back::before       { background-image:url("/assets/img/projects/arp.png"); }
+.bg-snort .lab-card__face--back::before     { background-image:url("/assets/img/projects/snort.png"); }
+.bg-sqlinject .lab-card__face--back::before { background-image:url("/assets/img/projects/sqlinjection.png"); }
+.lab-card.is-flipped .lab-card__face--back::before { opacity:.08 !important; }
 
-/* ─── CLICK TO FLIP INDICATOR (always visible, pulsing, same color) ───────────────────── */
+/* Content + readable titles */
+.lab-card__body { position:relative; z-index:1; padding:16px; }
+.lab-card__title, .lab-card__desc { text-shadow: 0 1px 2px rgba(0,0,0,.22); }
+.lab-card__desc { font-size:.9rem; color:#374151; margin-bottom:10px; }
+.lab-card__tags { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px; }
+
+/* Buttons & tags */
+.btn {
+  display:inline-block; padding:8px 12px; background:#b45309; color:#fff;
+  border-radius:8px; text-decoration:none; border:1px solid #b45309; font-weight:600;
+}
+.btn:hover { background:#92400e; border-color:#92400e; }
+.tag { display:inline-block; font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid transparent; font-weight:600; }
+.tag--slate{background:#e5e7eb;color:#1f2937;border-color:#9ca3af;}
+.tag--amber{background:#fef3c7;color:#92400e;border-color:#f59e0b;}
+.tag--web{background:#ffe9e0;color:#9a3412;border-color:#f4b29a;}
+.tag--green{background:#dcfce7;color:#065f46;border-color:#10b981;}
+
+/* Flip shadows */
+.lab-card { box-shadow: 0 3px 10px rgba(0,0,0,0.08); }
+.lab-card.is-flipped { box-shadow: 0 14px 32px rgba(0,0,0,0.18); }
+.lab-card__inner::after {
+  content:""; position:absolute; left:10%; right:10%; bottom:-8px; height:16px; border-radius:50%;
+  filter:blur(8px); background:rgba(0,0,0,0.15); opacity:0; transition:opacity .6s ease; transform: translateZ(-1px);
+}
+.lab-card.is-flipped .lab-card__inner::after { opacity:.25; }
+
+/* Click-to-flip hint (always visible, pulsing) */
 .lab-card__hint {
-  position: absolute;
-  bottom: 12px;
-  right: 14px;
-  background: rgba(0, 0, 0, 0.45); /* same subtle dark overlay as before */
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 6px 10px;
-  border-radius: 999px;
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
-  z-index: 3;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  animation: pulseHint 2s ease-in-out infinite;
-  opacity: 1; /* always visible */
+  position:absolute; bottom:12px; right:14px;
+  background: rgba(0, 0, 0, 0.45); color: rgba(255,255,255,0.9);
+  font-size: .8rem; font-weight:600; padding:6px 10px; border-radius:999px;
+  letter-spacing:.3px; text-transform:uppercase; z-index:3;
+  box-shadow:0 2px 6px rgba(0,0,0,0.25);
+  animation: pulseHint 2s ease-in-out infinite; opacity:1;
 }
-
-/* Pulse animation for subtle breathing effect */
 @keyframes pulseHint {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.55);
-    opacity: 0.85;
-  }
+  0%,100% { transform: scale(1); box-shadow:0 0 6px rgba(0,0,0,0.4); opacity:1; }
+  50%     { transform: scale(1.05); box-shadow:0 0 10px rgba(0,0,0,0.55); opacity:.85; }
 }
 
-/* Keeps hint readable and unaffected when flipped */
-.lab-card.is-flipped .lab-card__hint {
-  opacity: 0.8;
-}
-
-/* ---- PowerPoint embed (responsive 16:9) ---- */
-.slides-embed {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;     /* modern browsers */
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,.05);
-  margin: 12px 0 10px;
-}
-
-.slides-embed iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-/* Actions under the viewer */
-.slides-actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin: 8px 0 4px;
-}
-
-.slides-actions .btn {
-  background: #7c2d12;       /* match your theme */
-  border-color: #7c2d12;
-}
-.slides-actions .btn:hover {
-  background: #9a3412;
-  border-color: #9a3412;
-}
-
-.slides-note {
-  color: #4b5563;
-  margin: 6px 0 0;
-  font-size: .95rem;
-}
-
-/* Embedded PowerPoint container */
-.ppt-container {
-  position: relative;
-  margin-top: 10px;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-  background: #fff;
-}
-
-/* ===== Featured PPT styling (terracotta frame + toolbar crop) ===== */
-
-.ppt-card { /* lets the card fill nicely in your grid */
-  padding: 16px;
-}
-
-.ppt-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0 0 6px;
-  color: #7c2d12;
-  font-weight: 600;
-}
-
-.ppt-icon {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
-}
-
-.ppt-blurb {
-  margin: 6px 0 12px;
-  color: #374151;
-}
-
-/* Terracotta frame that matches your theme */
-.ppt-shell {
-  position: relative;
-  border: 1px solid #e7d3c0;
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-  overflow: hidden;
-}
-
-/* Title bar that feels like your lab cards */
-.ppt-shell__header {
-  background: #e7d3c0;
-  color: #7c2d12;
-  font-weight: 600;
-  padding: 10px 14px;
-  border-bottom: 1px solid #d6bfa9;
-}
-
-/* Keep a clean 16:9 viewport, responsive */
-.ppt-viewport {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  background: #000; /* prevents white flash while loading */
-  overflow: hidden; /* allow us to crop toolbars/letterbox */
-}
-
-/* Crop black bars + the bottom Office toolbar by oversizing & shifting */
-.ppt-iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: calc(100% + 60px); /* a bit taller so we can slide it up */
-  border: 0;
-  transform: translateY(-44px); /* move the frame up to hide the bottom toolbar */
-  /* If you still see a black strip on top or bottom, tweak these two numbers:
-     - increase/decrease the translateY value by a few px
-     - adjust the +60px height buffer above to compensate */
-}
-
-/* Small screens: keep it readable */
-@media (max-width: 640px) {
-  .ppt-shell__header { font-size: 0.95rem; padding: 8px 12px; }
-}
-.slideshow-container {
-  margin-top: 20px;
-  margin-bottom: 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.slideshow-container iframe {
-  width: 100%;
-  max-width: 980px;
-  height: 620px;
-  border-radius: 12px;
-  border: none;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-}
-/* ─── PowerPoint Embed Styling ─────────────────────────────── */
-.pptx-embed {
-  position: relative;
-  width: 100%;
-  max-width: 980px; /* match your site's width */
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  margin: 24px auto;
-}
-
-.pptx-embed iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  transform: scale(1.02); /* removes black edges */
-  transform-origin: center;
-}
-/* === PowerPoint Embed Styling === */
+/* ─── PowerPoint Embed Styling (Featured Project) ────────────── */
 .pptx-container {
   position: relative;
   width: 100%;
@@ -640,14 +257,16 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
   margin: 20px auto;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
   background: #faf6f2;
 }
-
 .pptx-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  transform: scale(1.05); /* improves crispness */
+  width: 100%; height: 100%; border: none;
+  transform: scale(1.05);       /* trims viewer chrome + boosts apparent sharpness */
   transform-origin: center;
+}
+
+/* ─── RESPONSIVE TWEAKS ─────────────────────────────────────── */
+@media (max-width: 640px) {
+  main { padding: 20px 16px; }
 }
