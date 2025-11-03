@@ -313,3 +313,34 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     box-shadow: 0
+@media (max-width: 768px) {
+  #mobile-menu {
+    display: flex;
+    flex-direction: column;   /* <-- column layout */
+    gap: 6px;                 /* nice spacing */
+  }
+  #mobile-menu a {
+    display: block;           /* ensure full-width tap targets */
+    width: 100%;
+  }
+}
+
+  /* Taller cards on mobile so back-face content (and button) stays visible */
+@media (max-width: 768px) {
+  .lab-card { width: 100%; aspect-ratio: 3 / 4; } /* was 1 / 1 */
+  .lab-card__face--back {
+    overflow: auto;                  /* allow scroll if content still long */
+    -webkit-overflow-scrolling: touch;
+  }
+  /* Make the back face layout push the button to the bottom */
+  .lab-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+  }
+  .lab-card__body .btn {
+    margin-top: auto;                /* sticks button to bottom of card */
+    align-self: flex-start;
+  }
+}
