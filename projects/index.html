@@ -10,12 +10,8 @@
 <body>
 <header class="site-header">
   <h1 class="brand">
-    <a href="/">
-      <span class="logo-badge">JR</span>
-      <span class="logo-text">Jeffrey&nbsp;Resto</span>
-    </a>
+    <a href="/"><span class="logo-badge">JR</span><span class="logo-text">Jeffrey&nbsp;Resto</span></a>
   </h1>
-
   <nav class="site-nav">
     <a href="/">Home</a>
     <a href="/projects/">Projects</a>
@@ -23,22 +19,46 @@
     <a href="/credentials/">Credentials</a>
     <a href="mailto:restojeffrey@gmail.com">Contact</a>
   </nav>
-
 </header>
 
 <main>
   <h2>Projects</h2>
-  <p>Here are some of my cybersecurity labs and projects.</p>
+  <p>Hands-on cybersecurity labs with evidence and remediation notes.</p>
 
   <div class="cards">
+    <!-- TCP/IP SYN Flood -->
     <article class="card">
-      <h3><a href="/projects/project-template.html">Web App XSS Hardening</a></h3>
-      <p>Identified and mitigated reflected XSS vulnerabilities using Burp Suite, OWASP ZAP, and CSP headers.</p>
+      <h3>TCP/IP SYN Flood Analysis</h3>
+      <p>Simulated SYN floods with <code>nping</code>; inspected half-open connections in Wireshark; discussed mitigations (SYN cookies, backlog tuning).</p>
+      <p><a class="btn" href="/assets/reports/lab%20%231%20.docx.pdf" target="_blank" rel="noopener">View Report</a></p>
     </article>
 
+    <!-- XSS -->
     <article class="card">
-      <h3><a href="#">Network Enumeration Lab</a></h3>
-      <p>Scanned and mapped Windows/Linux environments to identify open ports, services, and misconfigurations.</p>
+      <h3>Stored &amp; Reflected XSS Demo + Defenses</h3>
+      <p>Showcased stored/reflected XSS; hardened via output encoding, input validation, and CSP.</p>
+      <p><a class="btn" href="/assets/reports/lab%20%232%20xss.pdf" target="_blank" rel="noopener">View Report</a></p>
+    </article>
+
+    <!-- ARP Spoof -->
+    <article class="card">
+      <h3>ARP Spoofing / MITM</h3>
+      <p>Manipulated ARP tables to intercept traffic; captured packets; covered switch-level protections.</p>
+      <p><a class="btn" href="/assets/reports/lab%20%233.pdf" target="_blank" rel="noopener">View Report</a></p>
+    </article>
+
+    <!-- Snort IDS -->
+    <article class="card">
+      <h3>Snort IDS Rules &amp; Detection</h3>
+      <p>Wrote/tuned rules to detect scans; evaluated limits with HTTPS; included alert screenshots.</p>
+      <p><a class="btn" href="/assets/reports/lab%20%234.pdf" target="_blank" rel="noopener">View Report</a></p>
+    </article>
+
+    <!-- SQL Injection -->
+    <article class="card">
+      <h3>SQL Injection Exploit &amp; Remediation</h3>
+      <p>Exploited a vulnerable form; fixed with parameterized queries and least-privilege DB account.</p>
+      <p><a class="btn" href="/assets/reports/lab%20%235.pdf" target="_blank" rel="noopener">View Report</a></p>
     </article>
   </div>
 </main>
@@ -47,30 +67,5 @@
   <small>© <span id="y"></span> Jeffrey Resto</small>
 </footer>
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-<script>
-  (function () {
-    const footer = document.querySelector('footer');
-    if (!footer) return;
-
-    // If user prefers reduced motion, show immediately
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced) { footer.classList.add('is-visible'); return; }
-
-    // Reveal when the footer enters the viewport
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          footer.classList.add('is-visible');
-          io.unobserve(footer);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    io.observe(footer);
-
-    // Fallback: show after 2s in case IO is unsupported
-    setTimeout(() => footer.classList.add('is-visible'), 2000);
-  })();
-</script>
 </body>
 </html>
