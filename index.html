@@ -206,15 +206,20 @@
       </p>
 
       <!-- Responsive PowerPoint embed -->
-      <div class="pptx-container">
-        <iframe
-          src="https://view.officeapps.live.com/op/embed.aspx?src=https://jeffresto.github.io/assets/slides/PhishingAttackSimulationandMitigation.pptx"
-          title="Phishing Attack Simulation and Mitigation"
-          loading="lazy"
-          allowfullscreen
-          referrerpolicy="no-referrer"
-        ></iframe>
-      </div>
+      <!-- Clean Embedded PowerPoint with Navigation -->
+    <div class="pptx-container">
+      <iframe
+        src="https://view.officeapps.live.com/op/embed.aspx?src=https://jeffresto.github.io/assets/slides/PhishingAttackSimulationandMitigation.pptx"
+        frameborder="0"
+        allowfullscreen
+        class="pptx-frame"
+      ></iframe>
+    
+      <!-- Custom slide nav -->
+      <button class="pptx-btn pptx-btn--prev" aria-label="Previous slide">‹</button>
+      <button class="pptx-btn pptx-btn--next" aria-label="Next slide">›</button>
+    </div>
+
     </article>
   </div>
 </section>
@@ -391,6 +396,17 @@
       mo.observe(dotsWrap, { subtree: true, attributes: true, attributeFilter: ['aria-selected'] });
     }
   })();
+</script>
+<script>
+  document.querySelectorAll('.pptx-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const frame = document.querySelector('.pptx-frame').contentWindow;
+      frame.focus();
+      // simulate arrow key press
+      const key = btn.classList.contains('pptx-btn--next') ? 'ArrowRight' : 'ArrowLeft';
+      frame.document.dispatchEvent(new KeyboardEvent('keydown', { key }));
+    });
+  });
 </script>
 </body>
 </html>
