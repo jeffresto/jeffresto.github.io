@@ -515,3 +515,15 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
   margin: 6px 0 0;
   font-size: .95rem;
 }
+
+/* Embedded PowerPoint container */
+.ppt-container {
+  position: relative;
+  margin-top: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  background: #fff;
+}
+
