@@ -50,7 +50,7 @@ header, .site-header, .brand, .logo-badge { overflow:visible; }
 .home-gallery { max-width:980px; margin:0 auto; padding:28px 22px; }
 .home-gallery h2 {
   margin-bottom:16px; text-align:left; padding-left:0;
-  position:relative; left:-22px; /* your chosen nudge */
+  position:relative; left:-22px;
 }
 
 /* ─── HEADINGS ───────────────────────────────────────────────── */
@@ -68,26 +68,15 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
   box-shadow:0 2px 8px rgba(0,0,0,.05); transition:transform .15s ease, box-shadow .15s ease;
 }
 .card:hover { transform:translateY(-4px); box-shadow:0 4px 14px rgba(0,0,0,.08); }
+
+/* keep normal link colors for non-button links inside cards */
 .card a:not(.btn) { color:#b45309; }
 .card a:not(.btn):hover { color:#92400e; }
-/* Ensure all cards in a grid align buttons evenly */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px;
-}
 
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* pushes button to bottom */
-  height: 100%;
-}
-
-/* optional: keep card body tidy */
-.card p:last-of-type {
-  margin-bottom: 0;
-}
+/* Align buttons across cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+.card { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+.card p:last-of-type { margin-bottom: 0; }
 
 /* ─── RESUME VIEWER (image version) ──────────────────────────── */
 .resume-viewer { background:transparent; border:none; box-shadow:none; padding:0; display:flex; justify-content:center; align-items:center; }
@@ -130,7 +119,6 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
   position:relative; overflow:hidden; border-radius:14px; background:#f5ece4; border:1px solid #e7d3c0;
   box-shadow:0 4px 14px rgba(0,0,0,.08); margin-top:20px; margin-bottom:36px;
 }
-/* Viewport has real height so absolute slides show */
 .carousel__viewport {
   position:relative; display:block; height:clamp(340px, 55vw, 560px);
   transition:none; will-change:auto;
@@ -158,13 +146,8 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 }
 @media (hover: none) { .carousel__btn { display:none; } }
 
-/* Dots — slightly higher for perfect positioning */
-.carousel__dots-wrapper {
-  position: relative;
-  top: 8px;
-  display: flex;
-  justify-content: center;
-}
+/* Dots */
+.carousel__dots-wrapper { position: relative; top: 8px; display: flex; justify-content: center; }
 .carousel__dots {
   position:absolute; left:50%; bottom:10px; transform:translateX(-50%);
   display:flex; gap:8px; padding:6px 10px; background:rgba(255,255,255,.7);
@@ -188,8 +171,7 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
   background-size:cover; background-position:center; background-repeat:no-repeat;
   border-radius:14px; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; color:#1f2937;
   box-shadow:0 3px 10px rgba(0,0,0,0.08); transition:transform .2s ease, box-shadow .2s ease;
-  perspective: 1200px; /* for flip */
-  cursor: pointer;
+  perspective: 1200px; cursor: pointer;
 }
 .lab-card:hover { transform:translateY(-4px); box-shadow:0 6px 16px rgba(0,0,0,0.15); }
 @media (max-width:768px) { .lab-card { width:95%; max-width:none; } }
@@ -197,22 +179,23 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 /* Flip inner wrapper */
 .lab-card__inner {
   position: relative; width: 100%; height: 100%;
-  transform-style: preserve-3d; transition: transform .6s ease;
+  transform-style: preserve-3d; -webkit-transform-style: preserve-3d;
+  transition: transform .6s ease;
 }
 .lab-card.is-flipped .lab-card__inner { transform: rotateY(180deg); }
 
 /* Faces */
 .lab-card__face {
-  position:absolute; inset:0; border-radius:14px; backface-visibility:hidden; overflow:hidden;
+  position:absolute; inset:0; border-radius:14px;
   display:flex; flex-direction:column; justify-content:flex-end;
+  backface-visibility:hidden; -webkit-backface-visibility:hidden;
+  transform: rotateY(0) translateZ(0);
 }
 .lab-card__face--front { background: transparent; }
-.lab-card__face--front::before { content: none !important; } /* solid image on front */
-
-/* Back face with subtle gradient + watermark */
+.lab-card__face--front::before { content: none !important; }
 .lab-card__face--back {
   background: linear-gradient(135deg, #faf6f2 0%, #e7d3c0 100%) !important;
-  border: 1px solid #e5e7eb; transform: rotateY(180deg); position:relative; overflow:hidden;
+  border: 1px solid #e5e7eb; transform: rotateY(180deg) translateZ(0); position:relative; overflow:hidden;
 }
 .lab-card__face--back::before {
   content:""; position:absolute; inset:0; background-size:cover; background-position:center;
@@ -252,7 +235,7 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 }
 .lab-card.is-flipped .lab-card__inner::after { opacity:.25; }
 
-/* Click-to-flip hint (always visible, pulsing) */
+/* Click-to-flip hint */
 .lab-card__hint {
   position:absolute; bottom:12px; right:14px;
   background: rgba(0, 0, 0, 0.45); color: rgba(255,255,255,0.9);
@@ -260,69 +243,54 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
   letter-spacing:.3px; text-transform:uppercase; z-index:3;
   box-shadow:0 2px 6px rgba(0,0,0,0.25);
   animation: pulseHint 2s ease-in-out infinite; opacity:1;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  transition: opacity .25s ease;
 }
 @keyframes pulseHint {
   0%,100% { transform: scale(1); box-shadow:0 0 6px rgba(0,0,0,0.4); opacity:1; }
   50%     { transform: scale(1.05); box-shadow:0 0 10px rgba(0,0,0,0.55); opacity:.85; }
 }
+/* Hide hint when flipped (front face only), and never show on back */
+.lab-card.is-flipped .lab-card__face--front .lab-card__hint { opacity:0 !important; visibility:hidden !important; pointer-events:none !important; }
+.lab-card__face--back .lab-card__hint { display:none !important; }
 
 /* ─── RESPONSIVE TWEAKS ─────────────────────────────────────── */
 @media (max-width: 640px) {
   main { padding: 20px 16px; }
 }
-/* PowerPoint embed — native scale, full toolbar, responsive 16:9 */
+/* PowerPoint embed — native scale, responsive 16:9 */
 .pptx-container {
   position: relative;
   width: 100%;
-  max-width: 1040px;         /* a bit larger than cards so it feels prominent */
-  aspect-ratio: 16 / 9;      /* preserve slide proportions */
-  margin: 24px auto;         /* center in the column */
+  max-width: 1040px;
+  aspect-ratio: 16 / 9;
+  margin: 24px auto;
   border-radius: 12px;
-  overflow: hidden;           /* hides Office viewer edges cleanly */
+  overflow: hidden;
   box-shadow: 0 4px 14px rgba(0,0,0,.08);
-  background: #000;          /* prevents a white flash while loading */
+  background: #000;
 }
-
-/* IMPORTANT: no scale/translate — show the viewer as-is */
 .pptx-frame {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  transform: none !important;         /* kill any prior zoom */
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0; transform: none !important;
 }
-
-/* If the toolbar still feels cramped on small screens, make the box taller */
 @media (max-width: 640px) {
-  .pptx-container {
-    max-width: 100%;
-    /* Slightly taller than 16:9 on phones to keep toolbar comfy */
-    aspect-ratio: 16 / 10.2;
-  }
-
-  /* ── Mobile nav: hide desktop, show hamburger ───────────────── */
-/* Always respect the hidden attribute */
-[hidden] { display: none !important; }
-
-/* Base: desktop defaults */
-.site-nav { display: flex; }      /* your existing desktop nav */
-.nav-toggle { display: none; }    /* hide hamburger by default */
-#mobile-menu { display: none; }   /* never show on desktop */
-
-/* Mobile-only behavior */
-/* Always respect the hidden attribute */
-[hidden] { display: none !important; }
-
-/* 🚫 Desktop: never show mobile UI */
-@media (min-width: 769px) {
-  .nav-toggle { display: none !important; }
-  #mobile-menu { display: none !important; }
+  .pptx-container { max-width: 100%; aspect-ratio: 16 / 10.2; }
 }
 
-/* ✅ Mobile-only: show hamburger, allow menu to display when JS removes [hidden] */
+/* ───────────────── NAV: desktop vs mobile ───────────────── */
+[hidden] { display: none !important; }   /* always respect [hidden] */
+
+/* Desktop: show desktop nav, hide mobile UI */
+@media (min-width: 769px) {
+  .site-nav   { display: flex !important; }
+  .nav-toggle { display: none !important; }
+  #mobile-menu{ display: none !important; }
+}
+
+/* Mobile: hide desktop nav, show hamburger; dropdown appears only when [hidden] removed by JS */
 @media (max-width: 768px) {
-  .site-nav { display: none; }
+  .site-nav { display: none !important; }
+
   .nav-toggle {
     display: inline-block;
     background: #fff;
@@ -335,6 +303,7 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(0,0,0,.08);
   }
+
   #mobile-menu {
     position: fixed;
     top: 64px;
@@ -343,54 +312,4 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
     background: #fff;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
-    box-shadow: 0 10px 24px rgba(0,0,0,.12);
-    display: flex;              /* visible only when [hidden] is removed */
-    flex-direction: column;
-    padding: 10px;
-    z-index: 1000;
-    animation: mm-fade .15s ease-out;
-  }
-  #mobile-menu a { padding: 12px 10px; border-radius: 8px; color: #7c2d12; text-decoration: none; }
-  #mobile-menu a:hover { background: #fff8f0; color: #9a3412; }
-
-  @keyframes mm-fade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
-
-  .body--menu-open { overflow: hidden; }
-}
-
-
-/* Hide the "Click to Flip" hint once flipped */
-.lab-card.is-flipped .lab-card__hint {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* (Optional) smooth fade for the hint */
-.lab-card__hint { transition: opacity .25s ease; }
-.lab-card__inner {
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d; /* iOS */
-}
-
-.lab-card__face {
-  position: absolute; inset: 0;
-  border-radius: 14px;
-  display: flex; flex-direction: column; justify-content: flex-end;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;   /* iOS */
-  transform: rotateY(0) translateZ(0);    /* force compositing */
-}
-
-.lab-card__face--back {
-  transform: rotateY(180deg) translateZ(0);
-}
-/* Fade normally */
-.lab-card__hint { transition: opacity .25s ease; }
-
-/* When flipped, nuke the hint on the FRONT face explicitly */
-.lab-card.is-flipped .lab-card__face--front .lab-card__hint {
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
-.lab-card__face--back .lab-card__hint { display: none !important; }
+    box-shadow: 0
