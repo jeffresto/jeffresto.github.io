@@ -356,3 +356,11 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 .body--menu-open { overflow: hidden; }
 
 }
+/* Hide the "Click to Flip" hint once flipped */
+.lab-card.is-flipped .lab-card__hint {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* (Optional) smooth fade for the hint */
+.lab-card__hint { transition: opacity .25s ease; }
