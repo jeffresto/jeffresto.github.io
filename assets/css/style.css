@@ -311,10 +311,20 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 #mobile-menu { display: none; }   /* never show on desktop */
 
 /* Mobile-only behavior */
+/* Always respect the hidden attribute */
+[hidden] { display: none !important; }
+
+/* 🚫 Desktop: never show mobile UI */
+@media (min-width: 769px) {
+  .nav-toggle { display: none !important; }
+  #mobile-menu { display: none !important; }
+}
+
+/* ✅ Mobile-only: show hamburger, allow menu to display when JS removes [hidden] */
 @media (max-width: 768px) {
-  .site-nav { display: none; }           /* hide desktop nav on phones */
-  .nav-toggle { 
-    display: inline-block; 
+  .site-nav { display: none; }
+  .nav-toggle {
+    display: inline-block;
     background: #fff;
     border: 1px solid #d6bfa9;
     color: #7c2d12;
@@ -325,39 +335,29 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(0,0,0,.08);
   }
-
-  /* Mobile dropdown menu */
   #mobile-menu {
     position: fixed;
-    top: 64px;           /* sits under the header */
+    top: 64px;
     right: 14px;
     left: 14px;
     background: #fff;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     box-shadow: 0 10px 24px rgba(0,0,0,.12);
-    display: flex;       /* NOTE: hidden attribute will override via [hidden] rule */
+    display: flex;              /* visible only when [hidden] is removed */
     flex-direction: column;
     padding: 10px;
     z-index: 1000;
     animation: mm-fade .15s ease-out;
   }
-  #mobile-menu a {
-    padding: 12px 10px;
-    border-radius: 8px;
-    color: #7c2d12;
-    text-decoration: none;
-  }
+  #mobile-menu a { padding: 12px 10px; border-radius: 8px; color: #7c2d12; text-decoration: none; }
   #mobile-menu a:hover { background: #fff8f0; color: #9a3412; }
 
-  @keyframes mm-fade {
-    from { opacity: 0; transform: translateY(-6px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes mm-fade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* Prevent background scroll when menu is open */
   .body--menu-open { overflow: hidden; }
 }
+
 
 /* Hide the "Click to Flip" hint once flipped */
 .lab-card.is-flipped .lab-card__hint {
@@ -367,3 +367,30 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 
 /* (Optional) smooth fade for the hint */
 .lab-card__hint { transition: opacity .25s ease; }
+.lab-card__inner {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d; /* iOS */
+}
+
+.lab-card__face {
+  position: absolute; inset: 0;
+  border-radius: 14px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;   /* iOS */
+  transform: rotateY(0) translateZ(0);    /* force compositing */
+}
+
+.lab-card__face--back {
+  transform: rotateY(180deg) translateZ(0);
+}
+/* Fade normally */
+.lab-card__hint { transition: opacity .25s ease; }
+
+/* When flipped, nuke the hint on the FRONT face explicitly */
+.lab-card.is-flipped .lab-card__face--front .lab-card__hint {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+.lab-card__face--back .lab-card__hint { display: none !important; }
