@@ -38,7 +38,7 @@
       <div class="carousel__viewport" aria-live="polite">
         <!-- SLIDE 1: TCP/IP SYN Flood -->
         <figure class="carousel__slide" aria-label="1 of 5">
-          <div class="lab-card bg-tcp">
+          <div class="lab-card bg-tcp" role="button" aria-label="Flip card">
             <div class="lab-card__inner" aria-live="polite">
               <!-- FRONT -->
               <div class="lab-card__face lab-card__face--front">
@@ -68,7 +68,7 @@
 
         <!-- SLIDE 2: XSS -->
         <figure class="carousel__slide" aria-label="2 of 5">
-          <div class="lab-card bg-xss">
+          <div class="lab-card bg-xss" role="button" aria-label="Flip card">
             <div class="lab-card__inner">
               <div class="lab-card__face lab-card__face--front">
                 <div class="lab-card__body"></div>
@@ -96,7 +96,7 @@
 
         <!-- SLIDE 3: ARP Spoof -->
         <figure class="carousel__slide" aria-label="3 of 5">
-          <div class="lab-card bg-arp">
+          <div class="lab-card bg-arp" role="button" aria-label="Flip card">
             <div class="lab-card__inner">
               <div class="lab-card__face lab-card__face--front">
                 <div class="lab-card__body"></div>
@@ -124,7 +124,7 @@
 
         <!-- SLIDE 4: Snort IDS -->
         <figure class="carousel__slide" aria-label="4 of 5">
-          <div class="lab-card bg-snort">
+          <div class="lab-card bg-snort" role="button" aria-label="Flip card">
             <div class="lab-card__inner">
               <div class="lab-card__face lab-card__face--front">
                 <div class="lab-card__body"></div>
@@ -152,7 +152,7 @@
 
         <!-- SLIDE 5: SQLi -->
         <figure class="carousel__slide" aria-label="5 of 5">
-          <div class="lab-card bg-sqlinject">
+          <div class="lab-card bg-sqlinject" role="button" aria-label="Flip card">
             <div class="lab-card__inner">
               <div class="lab-card__face lab-card__face--front">
                 <div class="lab-card__body"></div>
@@ -213,12 +213,7 @@
         src="https://view.officeapps.live.com/op/embed.aspx?src=https://jeffresto.github.io/assets/slides/PhishingAttackSimulationandMitigation.pptx"
         allowfullscreen
       ></iframe>
-    
-      <!-- Custom slide nav -->
-      <button class="pptx-btn pptx-btn--prev" aria-label="Previous slide">‹</button>
-      <button class="pptx-btn pptx-btn--next" aria-label="Next slide">›</button>
     </div>
-
     </article>
   </div>
 </section>
@@ -395,17 +390,6 @@
       mo.observe(dotsWrap, { subtree: true, attributes: true, attributeFilter: ['aria-selected'] });
     }
   })();
-</script>
-<script>
-  document.querySelectorAll('.pptx-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const frame = document.querySelector('.pptx-frame').contentWindow;
-      frame.focus();
-      // simulate arrow key press
-      const key = btn.classList.contains('pptx-btn--next') ? 'ArrowRight' : 'ArrowLeft';
-      frame.document.dispatchEvent(new KeyboardEvent('keydown', { key }));
-    });
-  });
 </script>
 </body>
 </html>
