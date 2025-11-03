@@ -631,3 +631,23 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
   transform: scale(1.02); /* removes black edges */
   transform-origin: center;
 }
+/* === PowerPoint Embed Styling === */
+.pptx-container {
+  position: relative;
+  width: 100%;
+  max-width: 920px;
+  aspect-ratio: 16 / 9;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  background: #faf6f2;
+}
+
+.pptx-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  transform: scale(1.05); /* improves crispness */
+  transform-origin: center;
+}
