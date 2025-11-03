@@ -89,5 +89,39 @@
     setTimeout(() => footer.classList.add('is-visible'), 2000);
   })();
 </script>
+<script>
+  (function () {
+    const btn = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+
+    function closeMenu() {
+      menu.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('body--menu-open');
+    }
+    function openMenu() {
+      menu.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('body--menu-open');
+    }
+
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      expanded ? closeMenu() : openMenu();
+    });
+
+    // Close when clicking a link
+    menu.addEventListener('click', (e) => {
+      if (e.target.matches('a')) closeMenu();
+    });
+
+    // Close on escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  })();
+</script>
+
 </body>
 </html>
