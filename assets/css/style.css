@@ -70,6 +70,24 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 .card:hover { transform:translateY(-4px); box-shadow:0 4px 14px rgba(0,0,0,.08); }
 .card a { color:#b45309; }
 .card a:hover { color:#92400e; }
+/* Ensure all cards in a grid align buttons evenly */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* pushes button to bottom */
+  height: 100%;
+}
+
+/* optional: keep card body tidy */
+.card p:last-of-type {
+  margin-bottom: 0;
+}
 
 /* ─── RESUME VIEWER (image version) ──────────────────────────── */
 .resume-viewer { background:transparent; border:none; box-shadow:none; padding:0; display:flex; justify-content:center; align-items:center; }
