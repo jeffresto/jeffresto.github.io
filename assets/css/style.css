@@ -334,21 +334,35 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
   .body--menu-open { overflow: hidden; }
 }
 
-/* ───────── Taller cards on mobile so back-face content stays visible ─────── */
+/* ───────── Mobile cards: keep square; make back face scroll; pin button ─────── */
 @media (max-width: 768px) {
-  .lab-card { width: 100%; aspect-ratio: 3 / 4; } /* was 1 / 1 */
+  /* Back to square so the front image isn’t tall/stretched */
+  .lab-card {
+    width: 100%;
+    aspect-ratio: 1 / 1;     /* was 3 / 4 */
+  }
+
+  /* Let the back face scroll if content is long */
   .lab-card__face--back {
-    overflow: auto;                  /* allow scroll if content still long */
+    overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
+
+  /* Make the back-face content fill the card and push button to bottom */
   .lab-card__body {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    height: 100%;
+    height: 100%;            /* so “margin-top:auto” works on the button */
+    min-height: 0;           /* prevents flex overflow issues on iOS */
   }
+
   .lab-card__body .btn {
-    margin-top: auto;                /* button sticks to bottom */
+    margin-top: auto;        /* stick the button to the bottom */
     align-self: flex-start;
   }
+
+  /* Slightly tighter text so it fits better on small screens */
+  .lab-card__desc { font-size: 0.92rem; }
+  .lab-card__tags { gap: 6px; }
 }
