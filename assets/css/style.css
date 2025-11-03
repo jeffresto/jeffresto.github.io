@@ -270,30 +270,34 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 @media (max-width: 640px) {
   main { padding: 20px 16px; }
 }
-/* PowerPoint Embed — show native controls + better scale */
+/* PowerPoint embed — native scale, full toolbar, responsive 16:9 */
 .pptx-container {
   position: relative;
   width: 100%;
-  max-width: 960px;
-  aspect-ratio: 16 / 9;
-  margin: 28px auto;
+  max-width: 1040px;         /* a bit larger than cards so it feels prominent */
+  aspect-ratio: 16 / 9;      /* preserve slide proportions */
+  margin: 24px auto;         /* center in the column */
   border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-  background: #faf6f2;
+  overflow: hidden;           /* hides Office viewer edges cleanly */
+  box-shadow: 0 4px 14px rgba(0,0,0,.08);
+  background: #000;          /* prevents a white flash while loading */
 }
 
-/* No vertical crop now: show the toolbar so users can navigate */
+/* IMPORTANT: no scale/translate — show the viewer as-is */
 .pptx-frame {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  border: none;
-  /* Slight upscale for crispness without over-zooming */
-  transform: scale(1.01);
-  transform-origin: center;
+  border: 0;
+  transform: none !important;         /* kill any prior zoom */
 }
 
-/* Small screens */
+/* If the toolbar still feels cramped on small screens, make the box taller */
 @media (max-width: 640px) {
-  .pptx-btn { display: none; }
+  .pptx-container {
+    max-width: 100%;
+    /* Slightly taller than 16:9 on phones to keep toolbar comfy */
+    aspect-ratio: 16 / 10.2;
+  }
 }
