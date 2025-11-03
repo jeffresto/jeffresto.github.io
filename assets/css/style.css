@@ -270,7 +270,7 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 @media (max-width: 640px) {
   main { padding: 20px 16px; }
 }
-/* PowerPoint Embed — Clean View + Navigation */
+/* PowerPoint Embed — show native controls + better scale */
 .pptx-container {
   position: relative;
   width: 100%;
@@ -283,45 +283,15 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
   background: #faf6f2;
 }
 
-/* Remove Office toolbar (slides are slightly taller and shifted) */
+/* No vertical crop now: show the toolbar so users can navigate */
 .pptx-frame {
   width: 100%;
-  height: calc(100% + 60px);
+  height: 100%;
   border: none;
-  transform: translateY(-45px) scale(1.02);
+  /* Slight upscale for crispness without over-zooming */
+  transform: scale(1.01);
   transform-origin: center;
 }
-
-/* Arrows — same theme as carousel */
-.pptx-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 1px solid #d6bfa9;
-  background: #fff;
-  color: #7c2d12;
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  opacity: 0;
-  transition: opacity .25s ease, transform .15s ease;
-}
-
-.pptx-btn:hover {
-  transform: translateY(-50%) scale(1.05);
-  background: #fff8f0;
-}
-
-.pptx-container:hover .pptx-btn {
-  opacity: 1;
-}
-
-.pptx-btn--prev { left: 12px; }
-.pptx-btn--next { right: 12px; }
 
 /* Small screens */
 @media (max-width: 640px) {
