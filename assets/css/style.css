@@ -141,9 +141,7 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 .carousel__btn--prev { left:10px; }
 .carousel__btn--next { right:10px; }
 .carousel:hover .carousel__btn { opacity:1; pointer-events:auto; }
-.carousel__btn:focus-visible {
-  opacity:1; pointer-events:auto; outline:2px solid #b45309; outline-offset:2px;
-}
+.carousel__btn:focus-visible { opacity:1; pointer-events:auto; outline:2px solid #b45309; outline-offset:2px; }
 @media (hover: none) { .carousel__btn { display:none; } }
 
 /* Dots */
@@ -258,6 +256,7 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
 @media (max-width: 640px) {
   main { padding: 20px 16px; }
 }
+
 /* PowerPoint embed — native scale, responsive 16:9 */
 .pptx-container {
   position: relative;
@@ -277,7 +276,7 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
   .pptx-container { max-width: 100%; aspect-ratio: 16 / 10.2; }
 }
 
-/* ───────────────── NAV: desktop vs mobile ───────────────── */
+/* ──────────────── NAV: desktop vs mobile (FIXED) ───────────── */
 [hidden] { display: none !important; }   /* always respect [hidden] */
 
 /* Desktop: show desktop nav, hide mobile UI */
@@ -312,27 +311,36 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
     background: #fff;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
-    box-shadow: 0
-@media (max-width: 768px) {
-  #mobile-menu {
-    display: flex;
-    flex-direction: column;   /* <-- column layout */
-    gap: 6px;                 /* nice spacing */
+    box-shadow: 0 10px 24px rgba(0,0,0,.12);
+    display: flex;                 /* visible only when [hidden] is removed by JS */
+    flex-direction: column;        /* column layout */
+    gap: 6px;                      /* spacing between links */
+    padding: 10px;
+    z-index: 1000;
+    animation: mm-fade .15s ease-out;
   }
   #mobile-menu a {
-    display: block;           /* ensure full-width tap targets */
+    display: block;                /* full-width tap targets */
     width: 100%;
+    padding: 12px 10px;
+    border-radius: 8px;
+    color: #7c2d12;
+    text-decoration: none;
   }
+  #mobile-menu a:hover { background: #fff8f0; color: #9a3412; }
+
+  @keyframes mm-fade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .body--menu-open { overflow: hidden; }
 }
 
-  /* Taller cards on mobile so back-face content (and button) stays visible */
+/* ───────── Taller cards on mobile so back-face content stays visible ─────── */
 @media (max-width: 768px) {
   .lab-card { width: 100%; aspect-ratio: 3 / 4; } /* was 1 / 1 */
   .lab-card__face--back {
     overflow: auto;                  /* allow scroll if content still long */
     -webkit-overflow-scrolling: touch;
   }
-  /* Make the back face layout push the button to the bottom */
   .lab-card__body {
     display: flex;
     flex-direction: column;
@@ -340,7 +348,7 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
     height: 100%;
   }
   .lab-card__body .btn {
-    margin-top: auto;                /* sticks button to bottom of card */
+    margin-top: auto;                /* button sticks to bottom */
     align-self: flex-start;
   }
 }
