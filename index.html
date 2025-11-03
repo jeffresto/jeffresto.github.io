@@ -404,55 +404,28 @@
   })();
 </script>
 <script>
-  (function () {
-    const btn  = document.querySelector('.nav-toggle');
-    const menu = document.getElementById('mobile-menu');
-    if (!btn || !menu) return;
+(function(){
+  const btn  = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('mobile-menu');
+  if (!btn || !menu) return;
 
-    // ensure closed on load
-    menu.hidden = true;
-    btn.setAttribute('aria-expanded', 'false');
+  function closeMenu(){ if (menu.hidden) return; menu.hidden = true; btn.setAttribute('aria-expanded','false'); document.body.classList.remove('body--menu-open'); }
+  function openMenu(){ if (!menu.hidden) return; menu.hidden = false; btn.setAttribute('aria-expanded','true'); document.body.classList.add('body--menu-open'); }
 
-    function closeMenu() {
-      if (menu.hidden) return;
-      menu.hidden = true;
-      btn.setAttribute('aria-expanded', 'false');
-      document.body.classList.remove('body--menu-open');
-    }
-    function openMenu() {
-      if (!menu.hidden) return;
-      menu.hidden = false;
-      btn.setAttribute('aria-expanded', 'true');
-      document.body.classList.add('body--menu-open');
-    }
+  // ensure closed on load
+  menu.hidden = true; btn.setAttribute('aria-expanded','false');
 
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      expanded ? closeMenu() : openMenu();
-    });
+  btn.addEventListener('click', () => {
+    if (window.innerWidth > 768) return;   // 🛡️ block desktop
+    (btn.getAttribute('aria-expanded') === 'true') ? closeMenu() : openMenu();
+  });
 
-    // Close when clicking a link
-    menu.addEventListener('click', (e) => {
-      if (e.target.matches('a')) closeMenu();
-    });
-
-    // Close when tapping outside
-    document.addEventListener('click', (e) => {
-      if (menu.hidden) return;
-      const clickInsideMenu = menu.contains(e.target) || btn.contains(e.target);
-      if (!clickInsideMenu) closeMenu();
-    });
-
-    // Close if switching to desktop width
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) closeMenu();
-    });
-
-    // Close on Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
-    });
-  })();
+  menu.addEventListener('click', e => { if (e.target.matches('a')) closeMenu(); });
+  document.addEventListener('click', e => { if (!menu.hidden && !menu.contains(e.target) && !btn.contains(e.target)) closeMenu(); });
+  window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMenu(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
 </script>
+
 </body>
 </html>
