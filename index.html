@@ -21,6 +21,7 @@
     </a>
   </h1>
 
+  <!-- Desktop nav -->
   <nav class="site-nav">
     <a href="/">Home</a>
     <a href="/projects/">Projects</a>
@@ -28,11 +29,9 @@
     <a href="/credentials/">Credentials</a>
     <a href="mailto:restojeffrey@gmail.com">Contact</a>
   </nav>
-  <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
-    ☰
-  </button>
-  
-  <!-- Mobile dropdown menu -->
+
+  <!-- Mobile hamburger + dropdown -->
+  <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">☰</button>
   <nav id="mobile-menu" class="mobile-menu" hidden>
     <a href="/">Home</a>
     <a href="/projects/">Projects</a>
@@ -43,11 +42,12 @@
 </header>
 
 <main>
-  <!-- Project Gallery now aligned with main content -->
+  <!-- Project Gallery -->
   <section aria-labelledby="project-gallery" class="home-gallery">
     <h2 id="project-gallery">Project Gallery</h2>
     <div class="carousel" aria-roledescription="carousel">
       <div class="carousel__viewport" aria-live="polite">
+
         <!-- SLIDE 1: TCP/IP SYN Flood -->
         <figure class="carousel__slide" aria-label="1 of 5">
           <div class="lab-card bg-tcp" role="button" aria-label="Flip card">
@@ -68,10 +68,7 @@
                     <span class="tag tag--slate">Network</span>
                     <span class="tag tag--amber">Wireshark</span>
                   </div>
-                  <!-- PDF -->
-                  <p><a class="btn"
-                     href="/assets/reports/lab%20%231%20.docx.pdf"
-                     target="_blank" rel="noopener noreferrer">View Details</a></p>
+                  <p><a class="btn" href="/assets/reports/lab%20%231%20.docx.pdf" target="_blank" rel="noopener noreferrer">View Details</a></p>
                 </div>
               </div>
             </div>
@@ -96,10 +93,7 @@
                     <span class="tag tag--web">Web</span>
                     <span class="tag tag--amber">CSP</span>
                   </div>
-                  <!-- PDF -->
-                  <p><a class="btn"
-                     href="/assets/reports/lab%20%232%20xss.pdf"
-                     target="_blank" rel="noopener noreferrer">View Details</a></p>
+                  <p><a class="btn" href="/assets/reports/lab%20%232%20xss.pdf" target="_blank" rel="noopener noreferrer">View Details</a></p>
                 </div>
               </div>
             </div>
@@ -124,10 +118,7 @@
                     <span class="tag tag--slate">Network</span>
                     <span class="tag tag--green">MITM</span>
                   </div>
-                  <!-- PDF -->
-                  <p><a class="btn"
-                     href="/assets/reports/lab%20%233.pdf"
-                     target="_blank" rel="noopener noreferrer">View Details</a></p>
+                  <p><a class="btn" href="/assets/reports/lab%20%233.pdf" target="_blank" rel="noopener noreferrer">View Details</a></p>
                 </div>
               </div>
             </div>
@@ -152,10 +143,7 @@
                     <span class="tag tag--slate">Blue Team</span>
                     <span class="tag tag--green">IDS</span>
                   </div>
-                  <!-- PDF -->
-                  <p><a class="btn"
-                     href="/assets/reports/lab%20%234.pdf"
-                     target="_blank" rel="noopener noreferrer">View Details</a></p>
+                  <p><a class="btn" href="/assets/reports/lab%20%234.pdf" target="_blank" rel="noopener noreferrer">View Details</a></p>
                 </div>
               </div>
             </div>
@@ -180,15 +168,13 @@
                     <span class="tag tag--web">Web</span>
                     <span class="tag tag--green">AppSec</span>
                   </div>
-                  <!-- PDF -->
-                  <p><a class="btn"
-                     href="/assets/reports/lab%20%235.pdf"
-                     target="_blank" rel="noopener noreferrer">View Details</a></p>
+                  <p><a class="btn" href="/assets/reports/lab%20%235.pdf" target="_blank" rel="noopener noreferrer">View Details</a></p>
                 </div>
               </div>
             </div>
           </div>
         </figure>
+
       </div>
 
       <!-- Controls -->
@@ -207,30 +193,26 @@
     <p>Threat detection · Incident response · AppSec · Network security · Python tooling</p>
   </section>
 
-<section aria-labelledby="featured">
-  <h3 id="featured">Featured Project</h3>
-  <div class="cards">
-    <article class="card">
-      <h4>Phishing Attack Simulation and Mitigation</h4>
-      <p>
-        A PowerPoint presentation demonstrating simulated phishing campaigns,
-        mitigation strategies, and employee awareness outcomes. (Click Demo to view)
-      </p>
+  <section aria-labelledby="featured">
+    <h3 id="featured">Featured Project</h3>
+    <div class="cards">
+      <article class="card">
+        <h4>Phishing Attack Simulation and Mitigation</h4>
+        <p>
+          A PowerPoint presentation demonstrating simulated phishing campaigns,
+          mitigation strategies, and employee awareness outcomes. (Click Demo to view)
+        </p>
 
-      <!-- Responsive PowerPoint embed -->
-      <!-- Clean Embedded PowerPoint with Navigation -->
-    <div class="pptx-container">
-      <iframe
-        class="pptx-frame"
-        src="https://view.officeapps.live.com/op/embed.aspx?src=https://jeffresto.github.io/assets/slides/PhishingAttackSimulationandMitigation(revised).pptx"
-        allowfullscreen
-      ></iframe>
+        <div class="pptx-container">
+          <iframe
+            class="pptx-frame"
+            src="https://view.officeapps.live.com/op/embed.aspx?src=https://jeffresto.github.io/assets/slides/PhishingAttackSimulationandMitigation(revised).pptx"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </article>
     </div>
-    </article>
-  </div>
-</section>
-
-
+  </section>
 </main>
 
 <footer>
@@ -239,29 +221,22 @@
 
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 
+<!-- Footer reveal -->
 <script>
   (function () {
     const footer = document.querySelector('footer');
     if (!footer) return;
-
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced) { footer.classList.add('is-visible'); return; }
-
     const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          footer.classList.add('is-visible');
-          io.unobserve(footer);
-        }
-      });
+      entries.forEach((e) => { if (e.isIntersecting) { footer.classList.add('is-visible'); io.unobserve(footer); } });
     }, { threshold: 0.1 });
-
     io.observe(footer);
     setTimeout(() => footer.classList.add('is-visible'), 2000);
   })();
 </script>
 
-<!-- Fade carousel logic -->
+<!-- Carousel -->
 <script>
 (function(){
   const root = document.querySelector('.carousel');
@@ -275,7 +250,7 @@
 
   let index = 0;
   let autoTimer = null;
-  const intervalMs = 7000; // slower pace
+  const intervalMs = 7000;
 
   // Build dots
   dotsWrap.innerHTML = '';
@@ -307,26 +282,17 @@
   function next(){ goTo(index + 1); }
   function prev(){ goTo(index - 1); }
 
-  // Buttons
   nextBtn && nextBtn.addEventListener('click', next);
   prevBtn && prevBtn.addEventListener('click', prev);
 
-  // Keyboard
   root.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight') next();
     if (e.key === 'ArrowLeft')  prev();
   });
   root.tabIndex = 0;
 
-  // Autoplay (pause on hover / off-screen / hidden tab)
-  function startAuto(){
-    stopAuto();
-    autoTimer = setInterval(next, intervalMs);
-  }
-  function stopAuto(){
-    if (autoTimer) clearInterval(autoTimer);
-    autoTimer = null;
-  }
+  function startAuto(){ stopAuto(); autoTimer = setInterval(next, intervalMs); }
+  function stopAuto(){ if (autoTimer) clearInterval(autoTimer); autoTimer = null; }
   function restartAuto(){ stopAuto(); startAuto(); }
 
   root.addEventListener('mouseenter', stopAuto);
@@ -364,6 +330,7 @@
 })();
 </script>
 
+<!-- Flip cards -->
 <script>
   // Flip on card click (but let the button links work normally)
   document.querySelectorAll('.lab-card').forEach(card => {
@@ -391,18 +358,18 @@
       });
     }
 
-    // Unflip before manual nav
     nextBtn && nextBtn.addEventListener('click', unflipAll, { capture: true });
     prevBtn && prevBtn.addEventListener('click', unflipAll, { capture: true });
     dotsWrap && dotsWrap.addEventListener('click', unflipAll, { capture: true });
 
-    // Unflip on auto-advance: observe aria-selected change on dots
     if (dotsWrap) {
       const mo = new MutationObserver(unflipAll);
       mo.observe(dotsWrap, { subtree: true, attributes: true, attributeFilter: ['aria-selected'] });
     }
   })();
 </script>
+
+<!-- Mobile nav JS -->
 <script>
 (function(){
   const btn  = document.querySelector('.nav-toggle');
@@ -416,13 +383,24 @@
   menu.hidden = true; btn.setAttribute('aria-expanded','false');
 
   btn.addEventListener('click', () => {
-    if (window.innerWidth > 768) return;   // 🛡️ block desktop
+    if (window.innerWidth > 768) return;   // block desktop
     (btn.getAttribute('aria-expanded') === 'true') ? closeMenu() : openMenu();
   });
 
+  // Close when clicking a link in the menu
   menu.addEventListener('click', e => { if (e.target.matches('a')) closeMenu(); });
-  document.addEventListener('click', e => { if (!menu.hidden && !menu.contains(e.target) && !btn.contains(e.target)) closeMenu(); });
+
+  // Close on outside click
+  document.addEventListener('click', e => {
+    if (menu.hidden) return;
+    const clickInside = menu.contains(e.target) || btn.contains(e.target);
+    if (!clickInside) closeMenu();
+  });
+
+  // Close if resizing to desktop
   window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMenu(); });
+
+  // Close on Escape
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 })();
 </script>
