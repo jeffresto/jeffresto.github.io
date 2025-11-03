@@ -68,8 +68,8 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
   box-shadow:0 2px 8px rgba(0,0,0,.05); transition:transform .15s ease, box-shadow .15s ease;
 }
 .card:hover { transform:translateY(-4px); box-shadow:0 4px 14px rgba(0,0,0,.08); }
-.card a { color:#b45309; }
-.card a:hover { color:#92400e; }
+.card a:not(.btn) { color:#b45309; }
+.card a:not(.btn):hover { color:#92400e; }
 /* Ensure all cards in a grid align buttons evenly */
 .cards {
   display: grid;
