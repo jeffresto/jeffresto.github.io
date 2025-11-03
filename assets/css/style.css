@@ -527,3 +527,73 @@ h4 { font-size:1.1rem; font-weight:600; color:#7c2d12; }
   background: #fff;
 }
 
+/* ===== Featured PPT styling (terracotta frame + toolbar crop) ===== */
+
+.ppt-card { /* lets the card fill nicely in your grid */
+  padding: 16px;
+}
+
+.ppt-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 6px;
+  color: #7c2d12;
+  font-weight: 600;
+}
+
+.ppt-icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.ppt-blurb {
+  margin: 6px 0 12px;
+  color: #374151;
+}
+
+/* Terracotta frame that matches your theme */
+.ppt-shell {
+  position: relative;
+  border: 1px solid #e7d3c0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* Title bar that feels like your lab cards */
+.ppt-shell__header {
+  background: #e7d3c0;
+  color: #7c2d12;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-bottom: 1px solid #d6bfa9;
+}
+
+/* Keep a clean 16:9 viewport, responsive */
+.ppt-viewport {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000; /* prevents white flash while loading */
+  overflow: hidden; /* allow us to crop toolbars/letterbox */
+}
+
+/* Crop black bars + the bottom Office toolbar by oversizing & shifting */
+.ppt-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: calc(100% + 60px); /* a bit taller so we can slide it up */
+  border: 0;
+  transform: translateY(-44px); /* move the frame up to hide the bottom toolbar */
+  /* If you still see a black strip on top or bottom, tweak these two numbers:
+     - increase/decrease the translateY value by a few px
+     - adjust the +60px height buffer above to compensate */
+}
+
+/* Small screens: keep it readable */
+@media (max-width: 640px) {
+  .ppt-shell__header { font-size: 0.95rem; padding: 8px 12px; }
+}
