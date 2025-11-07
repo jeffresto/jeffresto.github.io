@@ -416,7 +416,7 @@ section#featured {
 
 .resume-page img {
   display: block;
-  width: 85%;          /* scale to container */
+  width: 90%;          /* scale to container */
   height: auto;         /* keep aspect ratio */
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
