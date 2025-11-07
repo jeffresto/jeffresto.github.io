@@ -398,3 +398,40 @@ section#featured {
   margin-top: 8px;            /* tighten header gap */
   margin-bottom: 8px;         /* keep a small gap below */
 }
+
+/* Responsive resume stack (two PNG pages) */
+.resume-stack {
+  display: grid;
+  gap: 18px;
+  max-width: 980px;
+  margin: 0 auto 16px;
+}
+
+.resume-page {
+  margin: 0;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.resume-page img {
+  display: block;
+  width: 100%;          /* scale to container */
+  height: auto;         /* keep aspect ratio */
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.resume-page figcaption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 6px;
+}
+
+/* Optional: tighter layout on small screens */
+@media (max-width: 640px) {
+  .resume-stack { gap: 14px; }
+  .resume-page img { border-radius: 10px; }
+}
+
